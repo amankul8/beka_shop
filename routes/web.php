@@ -1,0 +1,71 @@
+<?php
+
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Middleware\AuthMiddleware;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ModelsController;
+use App\Http\Controllers\ColorsController;
+
+Route::prefix('')->group(function () {
+    Route::get('', [AppController::class, 'index'])->name('home');
+    Route::get('products', [AppController::class, 'index'])->name('products');
+    Route::get('contact-us', [AppController::class, 'contacts'])->name('contact-us');
+    Route::get('about-us', [AppController::class, 'aboutUs'])->name('about-us');
+    Route::get('products/product/{product_id}', [AppController::class, 'productDetail'])->name('product-detail');
+});
+
+Route::prefix('auth')->group(function () {
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('sign-in', [AuthController::class, 'auth'])->name('user-auth');
+});
+
+
+Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
+    Route::get('', [AdminController::class, 'index'])->name('admin-index');
+
+    Route::prefix('categories')->group(function () {
+        Route::get('', [CategoriesController::class, 'index'])->name('admin-categories');
+        Route::get('create', [CategoriesController::class, 'create'])->name('admin-categories-create');
+        Route::get('edit/{id}', [CategoriesController::class, 'edit'])->name('admin-categories-edit');
+
+        Route::post('create', [CategoriesController::class, 'store'])->name('admin-categories-store');
+        Route::put('update', [CategoriesController::class, 'update'])->name('admin-categories-update');
+        Route::delete('delete', [CategoriesController::class, 'delete'])->name('admin-categories-delete');
+    });
+
+    Route::prefix('models')->group(function () {
+        Route::get('', [ModelsController::class, 'index'])->name('admin-models');
+        Route::get('create', [ModelsController::class, 'create'])->name('admin-models-create');
+        Route::get('edit/{id}', [ModelsController::class, 'edit'])->name('admin-models-edit');
+
+        Route::post('create', [ModelsController::class, 'store'])->name('admin-models-store');
+        Route::put('update', [ModelsController::class, 'update'])->name('admin-models-update');
+        Route::delete('delete', [ModelsController::class, 'delete'])->name('admin-models-delete');
+    });
+
+    Route::prefix('colors')->group(function () {
+        Route::get('', [ColorsController::class, 'index'])->name('admin-colors');
+        Route::get('create', [ColorsController::class, 'create'])->name('admin-colors-create');
+        Route::get('edit/{id}', [ColorsController::class, 'edit'])->name('admin-colors-edit');
+
+        Route::post('create', [ColorsController::class, 'store'])->name('admin-colors-store');
+        Route::put('update', [ColorsController::class, 'update'])->name('admin-colors-update');
+        Route::delete('delete', [ColorsController::class, 'delete'])->name('admin-colors-delete');
+    });
+
+    Route::prefix('products')->group(function () {
+        Route::get('', [ProductsController::class, 'index'])->name('admin-products');
+        Route::get('show/{id}', [ProductsController::class, 'show'])->name('admin-product-show');
+        Route::get('create', [ProductsController::class, 'create'])->name('admin-product-create');
+        Route::get('edit/{id}', [ProductsController::class, 'edit'])->name('admin-product-edit');
+
+        Route::post('create', [ProductsController::class, 'store'])->name('admin-product-store');
+        Route::put('update', [ProductsController::class, 'update'])->name('admin-product-update');
+        Route::delete('delete/{id}', [ProductsController::class, 'delete'])->name('admin-product-delete');
+    });
+});
