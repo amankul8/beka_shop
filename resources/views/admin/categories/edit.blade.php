@@ -17,12 +17,12 @@
                         </div>
                         <div class="card-body">
                             <div class="col-8 m-auto">
-                                <form method="POST" action="">
+                                <form method="POST" action="{{route('admin-categories-update')}}">
                                     @csrf
-
+                                    <input type="hidden" name="id" value="{{$category->id}}">
                                     <div class="form-group">
                                         <label for="title">Категория</label>
-                                        <input type="text" class="form-control rounded" id="title" name="title" placeholder="Текст...">
+                                        <input type="text" class="form-control rounded" id="title" name="name" placeholder="Текст..." value="{{$category->name}}">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary float-right">Сохранить</button>

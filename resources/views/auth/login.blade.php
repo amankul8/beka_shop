@@ -40,12 +40,13 @@
                         <div class="card-body pt-5">
                             <a class="text-center" href="{{route('home')}}"> <h4>Beka shop</h4> </a>
 
-                            <form class="mt-5 mb-5 login-input">
+                            <form action="{{route('user-auth')}}" method="POST" class="mt-5 mb-5 login-input">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="email" required class="form-control" placeholder="Email">
+                                    <input type="email" required class="form-control" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" required class="form-control" placeholder="Password">
+                                    <input type="password" required class="form-control" name="password" placeholder="Password">
                                 </div>
                                 <button type="submit" class="btn login-form__btn submit w-100">Sign In</button>
                             </form>

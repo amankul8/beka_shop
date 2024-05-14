@@ -17,12 +17,12 @@
                         </div>
                         <div class="card-body">
                             <div class="col-8 m-auto">
-                                <form method="POST" action="">
+                                <form method="POST" action="{{route('admin-models-update')}}">
                                     @csrf
-
+                                    <input type="hidden" name="id" value="{{$model->id}}">
                                     <div class="form-group">
                                         <label for="title">Модель</label>
-                                        <input type="text" class="form-control rounded" id="title" name="title" placeholder="Текст...">
+                                        <input type="text" required class="form-control rounded" id="title" name="name" value="{{$model->name}}" placeholder="Текст...">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary float-right">Сохранить</button>

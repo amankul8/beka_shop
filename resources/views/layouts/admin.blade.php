@@ -44,7 +44,7 @@
     ***********************************-->
     <div class="nav-header">
         <div class="brand-logo">
-            <a href="index.html">
+            <a href="{{route('admin-index')}}">
                 <span class="brand-title">
                     <img src="{{asset('distAdmin/images/logo-text.png')}}" alt="">
                 </span>
@@ -80,7 +80,7 @@
             <ul class="metismenu" id="menu">
                 <li class="nav-label">Dashboard</li>
                 <li>
-                    <a href="{{route('admin-index')}}" aria-expanded="false">
+                    <a href="{{route('admin-products')}}" aria-expanded="false">
                         <i class="icon-notebook menu-icon"></i><span class="nav-text">Тавары</span>
                     </a>
                 </li>

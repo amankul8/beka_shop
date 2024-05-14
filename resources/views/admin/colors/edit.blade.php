@@ -17,17 +17,18 @@
                         </div>
                         <div class="card-body">
                             <div class="col-8 m-auto">
-                                <form method="POST" action="">
+                                <form method="POST" action="{{route('admin-colors-update')}}">
                                     @csrf
-
+                                    <input type="hidden" name="id" value="{{$color->id}}">
                                     <div class="form-group">
                                         <label for="title">Название</label>
-                                        <input type="text" class="form-control rounded" id="title" name="title" placeholder="Текст...">
+                                        <input type="text" class="form-control rounded" id="title" name="name" value="{{$color->name}}" placeholder="Текст...">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title">Цвет</label>
-                                        <input type="text" class="form-control rounded" id="title" name="title" placeholder="Цвет...">
+                                        <label for="color">Цвет: </label>
+                                        <input type="text" required class="form-control rounded" id="color-edit-input" name="color" value="{{$color->color}}" placeholder="Цвет...">
+                                        <input type="color" id="color-edit-picker" class="mt-2" style="height: 50px; width: 50px; cursor: pointer;" value="{{$color->color}}">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary float-right">Сохранить</button>
@@ -39,5 +40,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorInput = document.getElementById('color-edit-input');
+            const colorPicker = document.getElementById('color-edit-picker');
+
+            colorPicker.addEventListener('change', function(event) {
+                colorInput.value = event.target.value;
+            });
+        });
+    </script>
 
 @endsection

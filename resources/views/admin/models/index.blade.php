@@ -14,55 +14,62 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered zero-configuration">
-                                    <thead>
-                                    <tr>
-                                        <th>№</th>
-                                        <th>Модель</th>
-                                        <th>Контроль</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="align-top"> 1 </td>
-                                        <td class="align-top"> Модель </td>
-                                        <td class="align-top">
-                                            <a href="{{route('admin-models-edit', ['id'=>1])}}" class="btn btn-warning mr-2 btn-sm">Изменить</a>
-                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicModal">Удалить</button>
+                                @if(@count($models) > 0)
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Модель</th>
+                                            <th>Контроль</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($models as $index=>$model)
+                                                <tr>
+                                                    <td class="align-top"> {{$index+1}} </td>
+                                                    <td class="align-top"> {{$model->name}} </td>
+                                                    <td class="align-top">
+                                                        <a href="{{route('admin-models-edit', ['id'=>$model->id])}}" class="btn btn-warning mr-2 btn-sm">Изменить</a>
+                                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicModal{{$model->id}}">Удалить</button>
 
-                                            <div class="modal fade" id="basicModal">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Удаление</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-                                                            </button>
+                                                        <div class="modal fade" id="basicModal{{$model->id}}">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title">Удаление</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <h5 class="text-danger">Вы действительно хатите удалить?</h5>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+                                                                        <form method="post" action="{{route('admin-models-delete')}}">
+                                                                            @csrf
+                                                                            <input type="hidden" name="id" value="{{$model->id}}">
+                                                                            <button type="submit" class="btn btn-danger"> Удалить </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <h5 class="text-danger">Вы действительно хатите удалить?</h5>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
-                                                            <form method="post" action="">
-                                                                <input type="hidden" value="">
-                                                                <button type="button" class="btn btn-danger"> Удалить </button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>№</th>
-                                        <th>Модель</th>
-                                        <th>Контроль</th>
-                                    </tr>
-                                    </tfoot>
-                                </table>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Модель</th>
+                                            <th>Контроль</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                @else
+                                    <p>Нет моделей</p>
+                                @endif
                             </div>
                         </div>
                     </div>

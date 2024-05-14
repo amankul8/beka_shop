@@ -20,7 +20,7 @@ Route::prefix('')->group(function () {
 
 Route::prefix('auth')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('sign-in', [AuthController::class, 'auth'])->name('user-auth');
 });
 
@@ -33,9 +33,9 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::get('create', [CategoriesController::class, 'create'])->name('admin-categories-create');
         Route::get('edit/{id}', [CategoriesController::class, 'edit'])->name('admin-categories-edit');
 
-        Route::post('create', [CategoriesController::class, 'store'])->name('admin-categories-store');
-        Route::put('update', [CategoriesController::class, 'update'])->name('admin-categories-update');
-        Route::delete('delete', [CategoriesController::class, 'delete'])->name('admin-categories-delete');
+        Route::post('store', [CategoriesController::class, 'store'])->name('admin-categories-store');
+        Route::post('update', [CategoriesController::class, 'update'])->name('admin-categories-update');
+        Route::post('delete', [CategoriesController::class, 'delete'])->name('admin-categories-delete');
     });
 
     Route::prefix('models')->group(function () {
@@ -44,8 +44,8 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::get('edit/{id}', [ModelsController::class, 'edit'])->name('admin-models-edit');
 
         Route::post('create', [ModelsController::class, 'store'])->name('admin-models-store');
-        Route::put('update', [ModelsController::class, 'update'])->name('admin-models-update');
-        Route::delete('delete', [ModelsController::class, 'delete'])->name('admin-models-delete');
+        Route::post('update', [ModelsController::class, 'update'])->name('admin-models-update');
+        Route::post('delete', [ModelsController::class, 'delete'])->name('admin-models-delete');
     });
 
     Route::prefix('colors')->group(function () {
@@ -54,8 +54,8 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::get('edit/{id}', [ColorsController::class, 'edit'])->name('admin-colors-edit');
 
         Route::post('create', [ColorsController::class, 'store'])->name('admin-colors-store');
-        Route::put('update', [ColorsController::class, 'update'])->name('admin-colors-update');
-        Route::delete('delete', [ColorsController::class, 'delete'])->name('admin-colors-delete');
+        Route::post('update', [ColorsController::class, 'update'])->name('admin-colors-update');
+        Route::post('delete', [ColorsController::class, 'delete'])->name('admin-colors-delete');
     });
 
     Route::prefix('products')->group(function () {
@@ -65,7 +65,7 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::get('edit/{id}', [ProductsController::class, 'edit'])->name('admin-product-edit');
 
         Route::post('create', [ProductsController::class, 'store'])->name('admin-product-store');
-        Route::put('update', [ProductsController::class, 'update'])->name('admin-product-update');
-        Route::delete('delete/{id}', [ProductsController::class, 'delete'])->name('admin-product-delete');
+        Route::post('update', [ProductsController::class, 'update'])->name('admin-product-update');
+        Route::post('delete/{id}', [ProductsController::class, 'delete'])->name('admin-product-delete');
     });
 });
