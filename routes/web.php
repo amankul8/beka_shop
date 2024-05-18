@@ -9,10 +9,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\ImageController;
 
 Route::prefix('')->group(function () {
     Route::get('', [AppController::class, 'index'])->name('home');
-    Route::get('products', [AppController::class, 'index'])->name('products');
+    Route::get('products', [AppController::class, 'products'])->name('products');
     Route::get('contact-us', [AppController::class, 'contacts'])->name('contact-us');
     Route::get('about-us', [AppController::class, 'aboutUs'])->name('about-us');
     Route::get('products/product/{product_id}', [AppController::class, 'productDetail'])->name('product-detail');
@@ -67,5 +68,9 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::post('create', [ProductsController::class, 'store'])->name('admin-product-store');
         Route::post('update', [ProductsController::class, 'update'])->name('admin-product-update');
         Route::post('delete/{id}', [ProductsController::class, 'delete'])->name('admin-product-delete');
+
+        Route::post('image/create', [ImageController::class, 'store'])->name('admin-product-image-store');
+        Route::post('image/update', [ImageController::class, 'update'])->name('admin-product-image-update');
+        Route::post('image/delete/{id}', [ImageController::class, 'delete'])->name('admin-product-image-delete');
     });
 });

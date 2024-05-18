@@ -28,7 +28,7 @@ class Product extends Model
     }
 
     public function model(){
-        return $this->belongsTo(Model::class);
+        return $this->belongsTo(ModelEntry::class);
     }
 
     public function color(){
