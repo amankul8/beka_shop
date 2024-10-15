@@ -30,10 +30,10 @@ class ColorsController extends Controller
             'color' => 'required'
         ]);
 
-        $category = Color::find($request->id);
-        $category->name = $request->input('name');
-        $category->color = $request->input('color');
-        $category->save();
+        $color = Color::find($request->id);
+        $color->name = $request->input('name');
+        $color->color = $request->input('color');
+        $color->save();
 
         return redirect()->route('admin-colors')->with('success', 'Color updated successfully');
     }

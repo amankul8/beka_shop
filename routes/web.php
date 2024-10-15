@@ -59,6 +59,36 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::post('delete', [ColorsController::class, 'delete'])->name('admin-colors-delete');
     });
 
+    Route::prefix('collections')->group(function () {
+        Route::get('', [ColorsController::class, 'index'])->name('admin-collections');
+        Route::get('create', [ColorsController::class, 'create'])->name('admin-collections-create');
+        Route::get('edit/{id}', [ColorsController::class, 'edit'])->name('admin-collections-edit');
+
+        Route::post('create', [ColorsController::class, 'store'])->name('admin-collections-store');
+        Route::post('update', [ColorsController::class, 'update'])->name('admin-collections-update');
+        Route::post('delete', [ColorsController::class, 'delete'])->name('admin-collections-delete');
+    });
+
+    Route::prefix('product-sizes')->group(function () {
+        Route::get('', [ColorsController::class, 'index'])->name('admin-product-sizes');
+        Route::get('create', [ColorsController::class, 'create'])->name('admin-product-sizes-create');
+        Route::get('edit/{id}', [ColorsController::class, 'edit'])->name('admin-product-sizes-edit');
+
+        Route::post('create', [ColorsController::class, 'store'])->name('admin-product-sizes-store');
+        Route::post('update', [ColorsController::class, 'update'])->name('admin-product-sizes-update');
+        Route::post('delete', [ColorsController::class, 'delete'])->name('admin-product-sizes-delete');
+    });
+
+    Route::prefix('currencies')->group(function () {
+        Route::get('', [ColorsController::class, 'index'])->name('admin-currencies');
+        Route::get('create', [ColorsController::class, 'create'])->name('admin-currencies-create');
+        Route::get('edit/{id}', [ColorsController::class, 'edit'])->name('admin-currencies-edit');
+
+        Route::post('create', [ColorsController::class, 'store'])->name('admin-currencies-store');
+        Route::post('update', [ColorsController::class, 'update'])->name('admin-currencies-update');
+        Route::post('delete', [ColorsController::class, 'delete'])->name('admin-currencies-delete');
+    });
+
     Route::prefix('products')->group(function () {
         Route::get('', [ProductsController::class, 'index'])->name('admin-products');
         Route::get('show/{id}', [ProductsController::class, 'show'])->name('admin-product-show');

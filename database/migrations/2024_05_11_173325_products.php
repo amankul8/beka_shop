@@ -13,12 +13,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('model_id');
             $table->unsignedBigInteger('color_id');
-            $table->string('name');
-            $table->text('description');
+            $table->unsignedBigInteger('size_id');
+            $table->unsignedBigInteger('collection_id');
+            $table->unsignedBigInteger('currency_id');
+            $table->string('composition');
+            $table->longText('description');
+            $table->double('price');
             $table->string('image_url');
+            $table->integer('min_quantity');
             $table->boolean('new')->nullable()->default(false);
             $table->boolean('pop')->nullable()->default(false);
             $table->boolean('active')->nullable()->default(true);
@@ -26,6 +32,9 @@ return new class extends Migration
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('model_id')->references('id')->on('models')->onDelete('cascade');
+            $table->foreign('size_id')->references('id')->on('product_size')->onDelete('cascade');
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
             $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
         });
     }
@@ -35,6 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('products');
+        Schema::dropIfExists('products');
     }
 };

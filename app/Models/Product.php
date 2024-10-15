@@ -12,15 +12,21 @@ class Product extends Model
     protected $table = 'products';
 
     protected $fillable = [
+        'name',
         'category_id',
         'model_id',
         'color_id',
-        'name',
+        'size_id',
+        'collection_id',
+        'currency_id',
+        'composition',
         'description',
         'image_url',
         'new',
         'pop',
         'active',
+        'price',
+        'min_quantity',
     ];
 
     public function category(){
@@ -33,6 +39,10 @@ class Product extends Model
 
     public function color(){
         return $this->belongsTo(Color::class);
+    }
+
+    public function size(){
+        return $this->belongsTo(ProductSize::class);
     }
 
     public function images(){
