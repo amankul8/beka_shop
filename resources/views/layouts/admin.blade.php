@@ -81,27 +81,51 @@
                 <li class="nav-label">Dashboard</li>
                 <li>
                     <a href="{{route('admin-products')}}" aria-expanded="false">
-                        <i class="icon-notebook menu-icon"></i><span class="nav-text">Тавары</span>
+                        <i class="icon-notebook menu-icon"></i>
+                        <span class="nav-text">Тавары</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin-categories')}}" aria-expanded="false">
-                        <i class="icon-grid menu-icon"></i><span class="nav-text">Категории</span>
+                        <i class="icon-grid menu-icon"></i>
+                        <span class="nav-text"> Категории </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin-models')}}" aria-expanded="false">
-                        <i class="icon-badge menu-icon"></i><span class="nav-text">Модели</span>
+                        <i class="icon-badge menu-icon"></i>
+                        <span class="nav-text"> Модели </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin-colors')}}" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Цвета</span>
+                        <i class="icon-globe-alt menu-icon">
+
+                        </i><span class="nav-text"> Цвета </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin-collections')}}" aria-expanded="false">
+                        <i class="icon-globe-alt menu-icon"></i>
+                        <span class="nav-text"> Коллекции </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin-product-sizes')}}" aria-expanded="false">
+                        <i class="icon-globe-alt menu-icon"></i>
+                        <span class="nav-text"> Размеры </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin-currencies')}}" aria-expanded="false">
+                        <i class="icon-globe-alt menu-icon"></i>
+                        <span class="nav-text"> Волюта </span>
                     </a>
                 </li>
                 <li>
                     <a class="text-warning" href="{{route('logout')}}" aria-expanded="false">
-                        <i class="icon-logout menu-icon"></i><span class="nav-text">Logout</span>
+                        <i class="icon-logout menu-icon"></i>
+                        <span class="nav-text">Logout</span>
                     </a>
                 </li>
             </ul>

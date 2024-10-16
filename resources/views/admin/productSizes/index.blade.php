@@ -7,40 +7,32 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-title d-flex justify-content-between px-4 pt-4">
-                            Цвета
-                            <a href="{{route('admin-colors-create')}}">
-                                <button class="btn btn-primary"> Добавить цвет</button>
+                            Размеры
+                            <a href="{{route('admin-product-sizes-create')}}">
+                                <button class="btn btn-primary"> Добавить размер </button>
                             </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                @if(count($colors)>0)
+                                @if(count($productSizes) > 0)
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
                                             <th>№</th>
                                             <th>Название</th>
-                                            <th>Цвета</th>
-                                            <th>Код</th>
                                             <th>Контроль</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($colors as $index=>$color)
+                                            @foreach($productSizes as $index=>$productSize)
                                                 <tr>
                                                     <td class="align-top"> {{$index+1}} </td>
-                                                    <td class="align-top"> {{$color->name}} </td>
+                                                    <td class="align-top"> {{$productSize->sizes}} </td>
                                                     <td class="align-top">
-                                                        <svg height="40" width="40" xmlns="http://www.w3.org/2000/svg">
-                                                            <circle r="20" cx="20" cy="20" fill="{{$color->color}}" />
-                                                        </svg>
-                                                    </td>
-                                                    <td class="align-top"> {{$color->color}} </td>
-                                                    <td class="align-top">
-                                                        <a href="{{route('admin-colors-edit', ['id'=>$color->id])}}" class="btn btn-warning mr-2 btn-sm">Изменить</a>
-                                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicModal{{$color->id}}">Удалить</button>
+                                                        <a href="{{route('admin-product-sizes-edit', ['id'=>$productSize->id])}}" class="btn btn-warning mr-2 btn-sm">Изменить</a>
+                                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicModal{{$productSize->id}}">Удалить</button>
 
-                                                        <div class="modal fade" id="basicModal{{$color->id}}">
+                                                        <div class="modal fade" id="basicModal{{$productSize->id}}">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -53,9 +45,9 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
-                                                                        <form method="post" action="{{route('admin-colors-delete')}}">
+                                                                        <form method="post" action="{{route('admin-product-sizes-delete')}}">
                                                                             @csrf
-                                                                            <input type="hidden" name="id" value="{{$color->id}}">
+                                                                            <input type="hidden" name="id" value="{{$productSize->id}}">
                                                                             <button type="submit" class="btn btn-danger"> Удалить </button>
                                                                         </form>
                                                                     </div>
@@ -71,14 +63,12 @@
                                         <tr>
                                             <th>№</th>
                                             <th>Название</th>
-                                            <th>Цвета</th>
-                                            <th>Код</th>
                                             <th>Контроль</th>
                                         </tr>
                                         </tfoot>
                                     </table>
                                 @else
-                                    <p>Нет цветов</p>
+                                    <p> Нет размеров </p>
                                 @endif
                             </div>
                         </div>

@@ -8,7 +8,7 @@
                         <div class="card-title d-flex justify-content-between px-4 pt-4">
                             Категории
                             <a href="{{route('admin-categories-create')}}">
-                                <button class="btn btn-primary"> Создать категорию </button>
+                                <button class="btn btn-primary"> Добавить категорию </button>
                             </a>
                         </div>
                         <div class="card-body">

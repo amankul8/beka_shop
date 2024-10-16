@@ -19,6 +19,9 @@ class AuthController extends Controller
     }
 
     public function auth(Request $request){
+//        $pass = $request->input('password');
+//        $hash = Hash::make($pass);
+//        die($hash);
 
         $request->validate([
             'email' => 'required',

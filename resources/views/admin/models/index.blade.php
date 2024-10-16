@@ -9,7 +9,7 @@
                         <div class="card-title d-flex justify-content-between px-4 pt-4">
                             Модели
                             <a href="{{route('admin-models-create')}}">
-                                <button class="btn btn-primary"> Создать модель</button>
+                                <button class="btn btn-primary"> Добавить модель</button>
                             </a>
                         </div>
                         <div class="card-body">

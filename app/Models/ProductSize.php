@@ -12,8 +12,7 @@ class ProductSize extends Model
     protected $table = 'product_size';
 
     protected $fillable = [
-        'size_name',
-        'size'
+        'sizes',
     ];
 
 }

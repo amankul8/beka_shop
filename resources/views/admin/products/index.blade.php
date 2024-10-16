@@ -11,7 +11,7 @@
                             <div class="card-title d-flex justify-content-between px-4 pt-2">
                                 Товары
                                 <a href="{{route('admin-product-create')}}">
-                                    <button class="btn btn-primary"> Создать товар</button>
+                                    <button class="btn btn-primary"> Добавить товар</button>
                                 </a>
                             </div>
                             <div class="table-responsive">

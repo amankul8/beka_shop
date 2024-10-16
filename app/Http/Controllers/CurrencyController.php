@@ -26,10 +26,12 @@ class CurrencyController extends Controller
     public function update(Request $request){
         request()->validate([
             'id'=> 'required',
+            'currency_name' => 'required',
             'currency_code' => 'required',
         ]);
 
         $currency = Currency::find($request->id);
+        $currency->currency_name = $request->input('currency_name');
         $currency->currency_code = $request->input('currency_code');
         $currency->save();
 
@@ -49,10 +51,12 @@ class CurrencyController extends Controller
 
     public function store(Request $request){
         $request->validate([
+            'currency_name' => 'required',
             'currency_code' => 'required',
         ]);
 
         Currency::create([
+            'currency_name' => $request->currency_name,
             'currency_code' => $request->currency_code,
         ]);
 
