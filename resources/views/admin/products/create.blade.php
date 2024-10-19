@@ -21,6 +21,11 @@
                                     @csrf
 
                                     <div class="form-group">
+                                        <label for="name">Название</label>
+                                        <input type="text" class="form-control rounded" required id="name" name="name" placeholder="Текст...">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="category_id"> Категория </label>
                                         <select class="form-control rounded" required id="category_id" name="category_id">
                                             <option value=""> Выберите категорию </option>
@@ -53,8 +58,51 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name">Название</label>
-                                        <input type="text" class="form-control rounded" required id="name" name="name" placeholder="Текст...">
+                                        <label for="collection_id"> Коллекция </label>
+                                        <div>
+                                            <select class="form-control rounded" required id="collection_id" name="collection_id">
+                                                <option value=""> Выберите коллекцию </option>
+                                                @foreach($collections as $collection)
+                                                    <option value="{{$collection->id}}"> {{$collection->collection_name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="size_id"> Размеры </label>
+                                        <div>
+                                            <select class="form-control rounded" required id="size_id" name="size_id">
+                                                <option value=""> Выберите размер </option>
+                                                @foreach($sizes as $size)
+                                                    <option value="{{$size->id}}"> {{$size->sizes}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="composition"> Состав </label>
+                                        <input type="text" class="form-control rounded" required id="composition" name="composition" placeholder="Состав...">
+                                    </div>
+
+                                    <div class="form-group min-quantity-input">
+                                        <label for="min_quantity"> Минимальная количество </label>
+                                        <input type="number" class="form-control rounded" required id="min_quantity" name="min_quantity" placeholder="0">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Цена</label>
+                                        <div class="currency-form-input">
+                                            <input type="number" class="form-control rounded" required id="price" name="price" placeholder="0">
+                                            <select class="form-control rounded" required id="currency_id" name="currency_id">
+                                                @foreach($currencies as $currency)
+                                                    <option value="{{$currency->id}}" @if($loop->first) selected @endif>
+                                                        {{$currency->currency_code}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">

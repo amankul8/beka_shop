@@ -25,6 +25,18 @@
                                         <input type="text" required class="form-control rounded" id="title" name="name" placeholder="Текст...">
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="parent_id"> Относится к </label>
+                                        <div>
+                                            <select class="form-control rounded" id="parent_id" name="parent_id">
+                                                <option value=""> Выберите категорию </option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}"> {{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <button type="submit" class="btn btn-primary float-right">Добавить</button>
                                 </form>
                             </div>

@@ -45,6 +45,13 @@ class Product extends Model
         return $this->belongsTo(ProductSize::class);
     }
 
+    public function collection(){
+        return $this->belongsTo(Collection::class);
+    }
+    public function currency(){
+        return $this->belongsTo(Currency::class);
+    }
+
     public function images(){
         return $this->hasMany(Image::class);
     }

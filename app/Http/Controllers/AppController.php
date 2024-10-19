@@ -32,8 +32,9 @@ class AppController extends Controller
     }
 
     public function products(){
+        $products = Product::where('active', true)->get();
 
-        return view('app.products');
+        return view('app.products', compact('products'));
     }
 
     public function productDetail($id){

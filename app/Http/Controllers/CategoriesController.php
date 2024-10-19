@@ -16,18 +16,26 @@ class CategoriesController extends Controller
 
     public function edit($id){
         $category = Category::find($id);
+        $categories = Category::all();
 
-        return view('admin.categories.edit', ['category' => $category]);
+        return view(
+            'admin.categories.edit',
+            [
+                'category' => $category,
+                'categories' => $categories
+            ]
+        );
     }
     public function update(Request $request){
         $request->validate([
-            'id' => 'required',
-            'name' => 'required',
+            'id' => 'required|exists:categories,id',
+            'name' => 'required|string|max:255',
+            'parent_id' => 'nullable|exists:categories,id',
         ]);
 
         $category = Category::find($request->id);
-        $category->name = $request->input('name');
-        $category->save();
+
+        $category->update($request->only(['name', 'parent_id']));
 
         return redirect()->route('admin-categories')->with('success', 'Category updated successfully');
     }
@@ -38,22 +46,29 @@ class CategoriesController extends Controller
         ]);
 
         $category = Category::findOrFail($request->id);
+
+        $category->sub_categories()->delete();
+
         $category->delete();
 
         return redirect()->route('admin-categories')->with('success', 'Category deleted successfully');
     }
 
     public function create(){
-        return view('admin.categories.create');
+        $categories = Category::all();
+
+        return view(
+            'admin.categories.create',
+            ['categories' => $categories]
+        );
     }
     public function store(Request $request){
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:255',
+            'parent_id' => 'nullable|exists:categories,id',
         ]);
 
-        Category::create([
-            'name' => $request->name,
-        ]);
+        Category::create($request->only(['name', 'parent_id']));
 
         return redirect()->route('admin-categories')->with('success', 'Category created successfully');
     }

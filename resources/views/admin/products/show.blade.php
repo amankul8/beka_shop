@@ -17,68 +17,104 @@
                             </a>
                         </div>
                         <div class="card-body">
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > №: </strong>
                                     <div class="border rounded bg-light p-2 mt-1">
                                         {{ $product->id }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
-                                    <strong     class="col-md-1"> Название: </strong>
+                                <div class="mb-2 show-block">
+                                    <strong> Название: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->name}}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Категория: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->category->name }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Модель: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->model->name }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Цвет: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->color->name }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
+                                    <strong > Коллекция: </strong>
+                                    <div class="border rounded bg-light p-2 mt-1" >
+                                        {{ $product->collection->collection_name }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-2 show-block">
+                                    <strong > Размеры: </strong>
+                                    <div class="border rounded bg-light p-2 mt-1" >
+                                        {{ $product->size->sizes }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-2 show-block">
+                                    <strong > Состав: </strong>
+                                    <div class="border rounded bg-light p-2 mt-1" >
+                                        {{ $product->composition }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-2 show-block">
+                                    <strong > Цена: </strong>
+                                    <div class="border rounded bg-light p-2 mt-1" >
+                                        {{ $product->price }}
+                                        {{ $product->currency->currency_code }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-2 show-block">
+                                    <strong > Минимальная количетво: </strong>
+                                    <div class="border rounded bg-light p-2 mt-1" >
+                                        {{ $product->min_quantity }}
+                                    </div>
+                                </div>
+
+                                <div class="mb-2 show-block">
                                     <strong > Популярный: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->pop ? 'Да': 'Нет' }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Новый: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->new ? 'Да': 'Нет' }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Ативен: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
                                         {{ $product->active ? 'Да': 'Нет' }}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Описание товара: </strong>
                                     <div class="border rounded bg-light p-2 mt-1">
                                         {!! $product->description !!}
                                     </div>
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 show-block">
                                     <strong > Главное фото: </strong>
                                     <div class="border rounded bg-light p-2 mt-1">
                                         <img  height="120" src="{{ asset('uploads/' . $product->image_url)}}" alt="">
                                     </div>
                                 </div>
 
-                                <div class="mb-4">
+                                <div class="mb-4 show-block">
                                     <strong > Дополнительные фотографии: </strong>
                                     <div class="border rounded bg-light p-2 mt-1 d-flex flex-wrap">
                                         @foreach($product->images as $image)

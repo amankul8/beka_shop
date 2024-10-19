@@ -19,6 +19,7 @@
                                         <tr>
                                             <th>№</th>
                                             <th>Категория</th>
+                                            <th>Относится</th>
                                             <th>Контроль</th>
                                         </tr>
                                         </thead>
@@ -27,6 +28,7 @@
                                                 <tr>
                                                     <td class="align-top"> {{$index + 1}} </td>
                                                     <td class="align-top"> {{$category->name}} </td>
+                                                    <td class="align-top"> @if($category->parent_id) {{ $category->parent->name }} @endif </td>
                                                     <td class="align-top">
                                                         <a href="{{route('admin-categories-edit', ['id'=>$category->id])}}" class="btn btn-warning mr-2 btn-sm">Изменить</a>
                                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicModal{{$category->id}}">Удалить</button>
@@ -62,6 +64,7 @@
                                         <tr>
                                             <th>№</th>
                                             <th>Категория</th>
+                                            <th>Относится</th>
                                             <th>Контроль</th>
                                         </tr>
                                         </tfoot>

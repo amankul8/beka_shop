@@ -25,6 +25,22 @@
                                         <input type="text" class="form-control rounded" id="title" name="name" placeholder="Текст..." value="{{$category->name}}">
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="parent_id"> Размеры </label>
+                                        <div>
+                                            <select class="form-control rounded" id="parent_id" name="parent_id">
+                                                <option value=""> Выберите категорию </option>
+                                                @foreach($categories as $item)
+                                                    @if($item->id == $category->parent_id)
+                                                        <option selected value="{{$item->id}}"> {{$item->name}} </option>
+                                                    @else
+                                                        <option value="{{$item->id}}"> {{$item->name}} </option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <button type="submit" class="btn btn-primary float-right">Сохранить</button>
                                 </form>
                             </div>
