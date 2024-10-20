@@ -24,9 +24,15 @@
                                         <label for="title">Название валюты</label>
                                         <input type="text" class="form-control rounded" id="title" name="currency_name" value="{{$currency->currency_name}}" placeholder="Текст...">
                                     </div>
+
                                     <div class="form-group">
                                         <label for="title">Код валюты</label>
                                         <input type="text" class="form-control rounded" id="title" name="currency_code" value="{{$currency->currency_code}}" placeholder="Код...">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exchange_rate"> Обменный курс (к сому) </label>
+                                        <input type="number" step="any" required class="form-control rounded" id="exchange_rate" value="{{$currency->exchange_rate}}" name="exchange_rate" placeholder="0.0">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary float-right">Сохранить</button>

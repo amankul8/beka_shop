@@ -14721,3 +14721,88 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .show-block div {
     margin: 2em 0 2em 3em;
 }
+
+.product-size-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.product-size-input select {
+    width: 200px;
+}
+
+.product-category-selector-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em;
+    position: relative;
+    min-width: 200px;
+    width: min-content;
+}
+.product-category-selector-wrapper .input {
+    width: 100%;
+    height: 36px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+.product-category-selector-wrapper:hover .product-category-selector {
+    display: flex;
+}
+.product-category-selector {
+    display: none;
+    position: absolute;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background: white;
+    left: 0;
+    top: 100%;
+    flex-direction: column;
+    width: 100%;
+}
+.product-category-selector-item {
+    background: white;
+    padding: 10px;
+    border-bottom: 1px solid #dbdbdb;
+    border-radius: 3px;
+    position: relative;
+}
+
+.product-category-selector-item:last-child {
+    border-bottom: none;
+}
+
+.product-category-selector-item:hover {
+    background: #f3f3f3;
+}
+.product-category-selector-item .product-category-selector-dropdown-block {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: #f3f3f3;
+    min-width: 150px;
+    border: 1px solid #dbdbdb;
+}
+.product-category-selector-item:hover .product-category-selector-dropdown-block {
+    display: flex;
+}
+
+.product-category-selector-item .product-category-selector-dropdown-block li {
+    padding: 7px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #dbdbdb;
+    border-radius: 3px;
+    position: relative;
+}
+
+.product-category-selector-item .product-category-selector-dropdown-block li:hover{
+    background: white;
+}
+
+.product-category-selector-item .product-category-selector-dropdown-block li:last-child {
+    border-bottom: none;
+}

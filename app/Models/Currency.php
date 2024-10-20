@@ -15,6 +15,7 @@ class Currency extends Model
     protected $fillable = [
         'currency_name',
         'currency_code',
+        'exchange_rate',
     ];
 
     public function products(): HasMany

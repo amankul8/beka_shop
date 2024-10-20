@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\Collection;
 use App\Models\Currency;
-use App\Models\ProductSize;
 use App\Models\Image;
 use App\Models\ModelEntry;
 use App\Models\Product;
@@ -17,6 +16,23 @@ use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
+
+   private $productSizes = array(
+        '38 (XXS)',
+        '40 (XS)',
+        '42 (S)',
+        '44 (M)',
+        '46 (M)',
+        '48 (L)',
+        '50 (L)',
+        '52 (XL)',
+        '54 (XXL)',
+        '56 (XXL)',
+        '58 (XXXL)',
+        '60 (4XL)',
+        '62 (4XL)',
+        '64 (4XL)',
+    );
     public function index(){
         $products = Product::all();
         return view('admin.products.index', ['products' => $products]);
@@ -30,12 +46,11 @@ class ProductsController extends Controller
 
     public function edit($id){
         $product = Product::find($id);
-        $categories = Category::all();
+        $categories = Category::where('parent_id', null)->get();
         $models = ModelEntry::all();
         $colors = Color::all();
         $collections = Collection::all();
         $currencies = Currency::all();
-        $sizes = ProductSize::all();
 
         return view(
             'admin.products.edit'
@@ -46,7 +61,6 @@ class ProductsController extends Controller
                 , 'colors' => $colors
                 , 'collections' => $collections
                 , 'currencies' => $currencies
-                , 'sizes' => $sizes
             ]);
     }
     public function update(Request $request)
@@ -59,7 +73,7 @@ class ProductsController extends Controller
             'model_id' => 'required',
             'color_id' => 'required',
             'collection_id' => 'required',
-            'size_id' => 'required',
+            'sizes' => 'required',
             'composition' => 'required',
             'min_quantity' => 'required',
             'price' => 'required',
@@ -97,7 +111,7 @@ class ProductsController extends Controller
                     'category_id' => $request->category_id,
                     'model_id' => $request->model_id,
                     'color_id' => $request->color_id,
-                    'size_id' => $request->size_id,
+                    'sizes' => $request->sizes,
                     'collection_id' => $request->collection_id,
                     'composition' => $request->composition,
                     'min_quantity' => $request->min_quantity,
@@ -147,12 +161,11 @@ class ProductsController extends Controller
 
     public function create(){
 
-        $categories = Category::all();
+        $categories = Category::where('parent_id', null)->get();
         $models = ModelEntry::all();
         $colors = Color::all();
         $collections = Collection::all();
         $currencies = Currency::all();
-        $sizes = ProductSize::all();
 
         return view(
             'admin.products.create'
@@ -162,7 +175,7 @@ class ProductsController extends Controller
                 , 'colors' => $colors
                 , 'collections' => $collections
                 , 'currencies' => $currencies
-                , 'sizes' => $sizes
+                , 'productSizes' => $this->productSizes
             ]
         );
     }
@@ -172,7 +185,8 @@ class ProductsController extends Controller
             'category_id' => 'required',
             'model_id' => 'required',
             'color_id' => 'required',
-            'size_id' => 'required',
+            'from_size' => 'required',
+            'before_size' => 'required',
             'collection_id' => 'required',
             'composition' => 'required',
             'min_quantity' => 'required',
@@ -187,12 +201,14 @@ class ProductsController extends Controller
 
         $file->move(public_path('uploads'), $fileName);
 
+        $sizes = $request['from_size'].' - '. $request['before_size'];
+
         Product::create([
             'name' => $request['name'],
             'category_id'=> $request['category_id'],
             'model_id' => $request['model_id'],
             'color_id' => $request['color_id'],
-            'size_id' => $request['size_id'],
+            'sizes' => $sizes,
             'collection_id' => $request['collection_id'],
             'composition' => $request['composition'],
             'min_quantity' => $request['min_quantity'],

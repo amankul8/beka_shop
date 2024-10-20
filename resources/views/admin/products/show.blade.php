@@ -32,7 +32,7 @@
                                 <div class="mb-2 show-block">
                                     <strong > Категория: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
-                                        {{ $product->category->name }}
+                                        {{ $product->category->parent->name }}, {{ $product->category->name }}
                                     </div>
                                 </div>
                                 <div class="mb-2 show-block">
@@ -57,7 +57,7 @@
                                 <div class="mb-2 show-block">
                                     <strong > Размеры: </strong>
                                     <div class="border rounded bg-light p-2 mt-1" >
-                                        {{ $product->size->sizes }}
+                                        {{ $product->sizes }}
                                     </div>
                                 </div>
 

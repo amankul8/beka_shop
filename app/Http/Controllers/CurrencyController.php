@@ -28,11 +28,13 @@ class CurrencyController extends Controller
             'id'=> 'required',
             'currency_name' => 'required',
             'currency_code' => 'required',
+            'exchange_rate' => 'required',
         ]);
 
         $currency = Currency::find($request->id);
         $currency->currency_name = $request->input('currency_name');
         $currency->currency_code = $request->input('currency_code');
+        $currency->exchange_rate = $request->input('exchange_rate');
         $currency->save();
 
         return redirect()->route('admin-currencies')->with('success', 'Currency updated successfully');
@@ -53,11 +55,13 @@ class CurrencyController extends Controller
         $request->validate([
             'currency_name' => 'required',
             'currency_code' => 'required',
+            'exchange_rate' => 'required',
         ]);
 
         Currency::create([
             'currency_name' => $request->currency_name,
             'currency_code' => $request->currency_code,
+            'exchange_rate' => $request->exchange_rate
         ]);
 
         return redirect()->route('admin-currencies')->with('success', 'Currency created successfully');

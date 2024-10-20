@@ -21,6 +21,7 @@
                                             <th>№</th>
                                             <th>Название</th>
                                             <th>Код</th>
+                                            <th>Обменный курс</th>
                                             <th>Контроль</th>
                                         </tr>
                                         </thead>
@@ -30,6 +31,7 @@
                                                     <td class="align-top"> {{$index+1}} </td>
                                                     <td class="align-top"> {{$currency->currency_name}} </td>
                                                     <td class="align-top"> {{$currency->currency_code}} </td>
+                                                    <td class="align-top"> {{$currency->exchange_rate}} </td>
                                                     <td class="align-top">
                                                         <a href="{{route('admin-currencies-edit', ['id'=>$currency->id])}}" class="btn btn-warning mr-2 btn-sm">Изменить</a>
                                                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#basicModal{{$currency->id}}">Удалить</button>
@@ -66,6 +68,7 @@
                                             <th>№</th>
                                             <th>Название</th>
                                             <th>Код</th>
+                                            <th>Обменный курс</th>
                                             <th>Контроль</th>
                                         </tr>
                                         </tfoot>

@@ -73,16 +73,6 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::post('delete', [CollectionsController::class, 'delete'])->name('admin-collections-delete');
     });
 
-    Route::prefix('product-sizes')->group(function () {
-        Route::get('', [ProductSizeController::class, 'index'])->name('admin-product-sizes');
-        Route::get('create', [ProductSizeController::class, 'create'])->name('admin-product-sizes-create');
-        Route::get('edit/{id}', [ProductSizeController::class, 'edit'])->name('admin-product-sizes-edit');
-
-        Route::post('create', [ProductSizeController::class, 'store'])->name('admin-product-sizes-store');
-        Route::post('update', [ProductSizeController::class, 'update'])->name('admin-product-sizes-update');
-        Route::post('delete', [ProductSizeController::class, 'delete'])->name('admin-product-sizes-delete');
-    });
-
     Route::prefix('currencies')->group(function () {
         Route::get('', [CurrencyController::class, 'index'])->name('admin-currencies');
         Route::get('create', [CurrencyController::class, 'create'])->name('admin-currencies-create');

@@ -27,12 +27,24 @@
 
                                     <div class="form-group">
                                         <label for="category_id"> Категория </label>
-                                        <select class="form-control rounded" required id="category_id" name="category_id">
-                                            <option value=""> Выберите категорию </option>
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div class="product-category-selector-wrapper">
+                                            <input  type="hidden" name="category_id" id="product_create_category_input_id">
+                                            <input class="input" type="text" id="product_create_category_input_name" disabled placeholder="Выберите">
+                                            <ul class="product-category-selector">
+                                                @foreach($categories as $category)
+                                                    <li class="product-category-selector-item">
+                                                        {{$category->name}}
+                                                        @if(count($category->sub_categories) > 0)
+                                                            <ul class="product-category-selector-dropdown-block">
+                                                                @foreach($category->sub_categories as $sub_category)
+                                                                    <li onclick="chooseCategory({{$sub_category->id}}, '{{$sub_category->name}}')"> {{$sub_category->name}} </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -70,14 +82,25 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="size_id"> Размеры </label>
-                                        <div>
-                                            <select class="form-control rounded" required id="size_id" name="size_id">
+                                        <label> Размеры </label>
+                                        <div class="product-size-input">
+
+                                            <label for="from_size"> От </label>
+                                            <select class="form-control rounded" required id="from_size" name="from_size">
                                                 <option value=""> Выберите размер </option>
-                                                @foreach($sizes as $size)
-                                                    <option value="{{$size->id}}"> {{$size->sizes}}</option>
+                                                @foreach($productSizes as $productSize)
+                                                    <option value="{{$productSize}}"> {{$productSize}}</option>
                                                 @endforeach
                                             </select>
+
+                                            <label for="before_size"> к </label>
+                                            <select class="form-control rounded" required id="before_size" name="before_size">
+                                                <option value=""> Выберите размер </option>
+                                                @foreach($productSizes as $productSize)
+                                                    <option value="{{$productSize}}"> {{$productSize}}</option>
+                                                @endforeach
+                                            </select>
+
                                         </div>
                                     </div>
 
@@ -141,5 +164,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        (function () {
+            const CategoryInputId$ = document.getElementById('product_create_category_input_id');
+            const CategoryInputName$ = document.getElementById('product_create_category_input_name');
+
+            window.chooseCategory = function (id, name) {
+                CategoryInputId$.setAttribute('value', id);
+                CategoryInputName$.setAttribute('value', name);
+            }
+        })();
+    </script>
 
 @endsection

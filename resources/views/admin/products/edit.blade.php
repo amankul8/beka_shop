@@ -28,16 +28,24 @@
 
                                     <div class="form-group">
                                         <label for="category_id"> Категория </label>
-                                        <select class="form-control rounded" required id="category_id" name="category_id">
-                                            <option value=""> Выберите категорию </option>
-                                            @foreach($categories as $category)
-                                                @if($category->id == $product->category_id)
-                                                    <option selected value="{{$category->id}}">{{$category->name}}</option>
-                                                @else
-                                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
+                                        <div class="product-category-selector-wrapper">
+                                            <input  type="hidden" name="category_id" id="product_update_category_input_id" value="{{$product->category->id}}">
+                                            <input class="input" type="text" id="product_update_category_input_name" value="{{$product->category->name}}" disabled placeholder="Выберите">
+                                            <ul class="product-category-selector">
+                                                @foreach($categories as $category)
+                                                    <li class="product-category-selector-item">
+                                                        {{$category->name}}
+                                                        @if(count($category->sub_categories) > 0)
+                                                            <ul class="product-category-selector-dropdown-block">
+                                                                @foreach($category->sub_categories as $sub_category)
+                                                                    <li onclick="chooseCategory({{$sub_category->id}}, '{{$sub_category->name}}')"> {{$sub_category->name}} </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -87,19 +95,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="size_id"> Размеры </label>
-                                        <div>
-                                            <select class="form-control rounded" required id="size_id" name="size_id">
-                                                <option value=""> Выберите размер </option>
-                                                @foreach($sizes as $size)
-                                                    @if($size->id == $product->size_id)
-                                                        <option selected value="{{$size->id}}"> {{$size->sizes}}</option>
-                                                    @else
-                                                        <option value="{{$size->id}}"> {{$size->sizes}}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        <label for="sizes"> Размеры </label>
+                                        <input type="text" class="form-control rounded" required id="sizes" name="sizes" value="{{$product->sizes}}" placeholder="Размеры...">
                                     </div>
 
                                     <div class="form-group">
@@ -162,5 +159,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        (function () {
+            const CategoryInputId$ = document.getElementById('product_update_category_input_id');
+            const CategoryInputName$ = document.getElementById('product_update_category_input_name');
+
+            window.chooseCategory = function (id, name) {
+                CategoryInputId$.setAttribute('value', id);
+                CategoryInputName$.setAttribute('value', name);
+            }
+        })();
+    </script>
 
 @endsection

@@ -16,7 +16,7 @@ class Product extends Model
         'category_id',
         'model_id',
         'color_id',
-        'size_id',
+        'sizes',
         'collection_id',
         'currency_id',
         'composition',
@@ -39,10 +39,6 @@ class Product extends Model
 
     public function color(){
         return $this->belongsTo(Color::class);
-    }
-
-    public function size(){
-        return $this->belongsTo(ProductSize::class);
     }
 
     public function collection(){

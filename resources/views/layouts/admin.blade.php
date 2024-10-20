@@ -111,12 +111,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin-product-sizes')}}" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon"></i>
-                        <span class="nav-text"> Размеры </span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{route('admin-currencies')}}" aria-expanded="false">
                         <i class="icon-globe-alt menu-icon"></i>
                         <span class="nav-text"> Волюта </span>
