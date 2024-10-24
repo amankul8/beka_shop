@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Beka Shop</title>
+    <title>Mania</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Colo Shop Template">
+    <meta name="description" content="mania">
+    <meta name="keywords" content="фабрика MANIA FABRIC, швейное производство, пошив одежды, шелкография, сублимация, изготовление лекал, пошив образцов, услуги ОТК, декатировка, упаковка, маркировка, закупка тканей, фурнитура, брендирование, пакеты с логотипом, лейблы, этикетки, доставка по СНГ, массовое производство одежды, маркетплейсы, качественная одежда, спецмашины, современное оборудование, трикотаж, заказ на производство, одежда на заказ, одежда для маркетплейсов, швейный цех, контроль качества"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('dist/styles/bootstrap4/bootstrap.min.css')}}">
     <link href="{{asset('dist/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('dist/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
@@ -24,6 +26,8 @@
     <link rel="stylesheet" href="{{asset('dist/plugins/themify-icons/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('dist/styles/single_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('dist/styles/single_responsive.css')}}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -43,11 +47,7 @@
                         <div class="top_nav_left">
                             <span>
                                 <i class="fa fa-phone"></i>
-                                +999 555 55 55 55
-                            </span>
-                            <span class="ml-3">
-                                <i class="fa fa-phone"></i>
-                                +999 555 55 55 55
+                                +996 701 11 45 65
                             </span>
                         </div>
                     </div>
@@ -58,19 +58,19 @@
                                 <!-- Currency / Language / My Account -->
 
                                 <li class="language">
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/fabricmania.kg?utm_source=qr&igsh=MWFwajg1N2Z4enFkYg==">
                                         <i class="fa fa-instagram"></i>
                                         Instagram
                                     </a>
                                 </li>
                                 <li class="language">
-                                    <a href="#">
+                                    <a href="https://t.me/fabric_mania">
                                         <i class="fa fa-telegram"></i>
                                         Telegram
                                     </a>
                                 </li>
                                 <li class="language">
-                                    <a href="#">
+                                    <a href="https://wa.me/996701114565">
                                         <i class="fa fa-whatsapp"></i>
                                         WhatsApp
                                     </a>
@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-right">
                         <div class="logo_container">
-                            <a href="{{route('home')}}">Man<span>ia</span></a>
+                            <img class="logo" src="{{asset('dist/images/logo.png')}}" alt="">
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
@@ -133,20 +133,19 @@
                 <div class="col-lg-6">
                     <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
                         <ul class="footer_nav">
-                            <li><a href="#">Категории</a></li>
-                            <li><a href="#">О нас</a></li>
-                            <li><a href="contact.html">Контакты</a></li>
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="/products">Продукты</a></li>
+                            <li><a href="/about-us">О нас</a></li>
+                            <li><a href="/contacts">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="https://t.me/fabric_mania"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                            <li><a href="https://wa.me/996701114565"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.instagram.com/fabricmania.kg?utm_source=qr&igsh=MWFwajg1N2Z4enFkYg=="><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>

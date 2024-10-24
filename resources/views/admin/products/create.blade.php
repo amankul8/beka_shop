@@ -93,7 +93,7 @@
                                                 @endforeach
                                             </select>
 
-                                            <label for="before_size"> к </label>
+                                            <label for="before_size"> до </label>
                                             <select class="form-control rounded" required id="before_size" name="before_size">
                                                 <option value=""> Выберите размер </option>
                                                 @foreach($productSizes as $productSize)

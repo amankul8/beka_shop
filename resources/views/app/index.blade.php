@@ -7,9 +7,11 @@
             <div class="row align-items-center fill_height">
                 <div class="col">
                     <div class="main_slider_content">
-                        <h6>Spring / Summer Collection 2017</h6>
-                        <h1>Get up to 30% Off New Arrivals</h1>
-                        <div class="red_button shop_now_button"><a href="#">shop now</a></div>
+                        <h6>
+                            Большой ассортимент тканей / Высокое качество производства
+                        </h6>
+                        <h1>Швейное производство полного цикла в Бишкеке</h1>
+                        <div class="red_button shop_now_button"><a href="#">Оставить заявку</a></div>
                     </div>
                 </div>
             </div>

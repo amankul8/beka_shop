@@ -803,17 +803,10 @@ section
 	transform: translateY(-50%);
 	left: 15px;
 }
-.logo_container a
-{
-	font-size: 24px;
-	color: #1e1e27;
-	font-weight: 700;
-	text-transform: uppercase;
+.logo_container .logo {
+    height: 60px;
 }
-.logo_container a span
-{
-	color: #fe4c50;
-}
+
 
 /*********************************
 3.7 Main Slider

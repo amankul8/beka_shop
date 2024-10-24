@@ -22,18 +22,19 @@
         <div class="row">
             <div class="col-lg-6 contact_col">
                 <div class="contact_contents">
-                    <h1>Contact Us</h1>
-                    <p>There are many ways to contact us. You may drop us a line, give us a call or send an email, choose what suits you the most.</p>
+                    <h1>Связаться с нами</h1>
+                    <p>
+                        Мы всегда на связи и готовы ответить на любые ваши вопросы! В Mania Fabric мы стремимся к открытой и прозрачной коммуникации с нашими клиентами и партнёрами. Если у вас есть вопросы о нашем ассортименте, заказах или сотрудничестве, свяжитесь с нами удобным для вас способом. Мы оперативно реагируем на все запросы и делаем всё возможное, чтобы ваш опыт взаимодействия с нами был максимально комфортным.
+                    </p>
                     <div>
-                        <p>(800) 686-6688</p>
-                        <p>info.deercreative@gmail.com</p>
+                        <p>+996 701 11 45 65</p>
+                        <p>mania.fabrik@gmail.com</p>
                     </div>
                     <div>
-                        <p>mm</p>
+                        <p>Instagram: <a href="https://www.instagram.com/fabricmania.kg?utm_source=qr&igsh=MWFwajg1N2Z4enFkYg==">maniafabric.kg</a> </p>
                     </div>
                     <div>
-                        <p>Open hours: 8.00-18.00 Mon-Fri</p>
-                        <p>Sunday: Closed</p>
+                        <p>Telegram: <a href="https://t.me/fabric_mania">fabric_mania</a></p>
                     </div>
                 </div>
 
@@ -42,10 +43,9 @@
                 <div class="follow_us_contents">
                     <h1>Follow Us</h1>
                     <ul class="social d-flex flex-row">
-                        <li><a href="#" style="background-color: #3a61c9"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#" style="background-color: #41a1f6"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#" style="background-color: #fb4343"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#" style="background-color: #8f6247"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://t.me/fabric_mania" style="background-color: #3a61c9"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://wa.me/996701114565" style="background-color: #41a1f6"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/fabricmania.kg?utm_source=qr&igsh=MWFwajg1N2Z4enFkYg==" style="background-color: #8f6247"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
 
@@ -53,8 +53,8 @@
 
             <div class="col-lg-6 get_in_touch_col">
                 <div class="get_in_touch_contents">
-                    <h1>Get In Touch With Us!</h1>
-                    <p>Fill out the form below to recieve a free and confidential.</p>
+                    <h1>Обратная связь</h1>
+                    <p>Мы ценим ваше доверие и готовы предложить профессиональные консультации, поддержку на каждом этапе сотрудничества и индивидуальный подход.</p>
                     <form action="post">
                         <div>
                             <input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
@@ -63,7 +63,7 @@
                             <textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
                         </div>
                         <div>
-                            <button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">send message</button>
+                            <button id="review_submit" type="submit" class="red_button message_submit_btn trans_300 p-3" value="Submit"> Отправить </button>
                         </div>
                     </form>
                 </div>
