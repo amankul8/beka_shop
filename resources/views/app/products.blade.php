@@ -189,48 +189,27 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <ul class="product_sorting">
-                                            <li>
-                                                <span>Показать</span>
-                                                <span class="num_sorting_text">6</span>
-                                                <i class="fa fa-angle-down"></i>
-                                                <ul class="sorting_num">
-                                                    <li class="num_sorting_btn"><span>6</span></li>
-                                                    <li class="num_sorting_btn"><span>12</span></li>
-                                                    <li class="num_sorting_btn"><span>24</span></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
                                     </div>
 
                                     <!-- Product Grid -->
 
-                                    <div class="product-grid">
-
-                                        <!-- Product 1 -->
+                                    <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 mt-5">
 
                                         @foreach($products as $product)
-                                            <div class="product-item men">
-                                                <div class="product discount product_filter">
-                                                    <div class="product_image">
-                                                        <img src="{{ asset('uploads/' . $product->image_url)}}"/>
-                                                    </div>
-                                                    <div class="favorite favorite_left"></div>
-                                                    <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
-                                                        @if($product->pop == 1)
-                                                            <span>pop</span>
-                                                        @elseif($product->new == 1)
-                                                            <span>new</span>
-                                                        @endif
-                                                    </div>
-                                                    <div class="product_info">
-                                                        <h6 class="product_name"><a href="single.html"> {{$product->name}} </a></h6>
-                                                        <div class="product_price"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
+                                            <div class="product-card" onclick="redirectTo('/products/product/{{ $product->id }}')">
+                                                <div class="product-image">
+                                                    <img src="{{ asset('uploads/' . $product->image_url)}}" alt=""/>
+                                                    <div class="fast-btn">
+                                                        <a href="#">Быстрый просмотр</a>
                                                     </div>
                                                 </div>
-                                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name"><a href="single.html">{{$product->name}}</a></h6>
+                                                    <div class="product_price"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
+                                                </div>
                                             </div>
                                         @endforeach
+
                                     </div>
 
                                     <!-- Product Sorting -->

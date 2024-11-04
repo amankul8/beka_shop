@@ -42,13 +42,9 @@
     <!--**********************************
         Nav header start
     ***********************************-->
-    <div class="nav-header">
-        <div class="brand-logo">
-            <a href="{{route('admin-index')}}">
-                <span class="brand-title">
-                    <img src="{{asset('distAdmin/images/logo-text.png')}}" alt="">
-                </span>
-            </a>
+    <div class="nav-header bg-white">
+        <div class="brand-logo d-flex align-items-center justify-content-center bg-white p-2">
+            <img class="h-auto w-50 img-fluid" src="{{ asset('dist/images/logo.png') }}" alt="Company Logo">
         </div>
     </div>
     <!--**********************************
@@ -99,20 +95,19 @@
                 </li>
                 <li>
                     <a href="{{route('admin-colors')}}" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon">
-
-                        </i><span class="nav-text"> Цвета </span>
+                        <i class="icon-pencil menu-icon"></i>
+                        <span class="nav-text"> Цвета </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin-collections')}}" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon"></i>
+                        <i class="icon-book-open menu-icon"></i>
                         <span class="nav-text"> Коллекции </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('admin-currencies')}}" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon"></i>
+                        <i class="icon-credit-card menu-icon"></i>
                         <span class="nav-text"> Волюта </span>
                     </a>
                 </li>

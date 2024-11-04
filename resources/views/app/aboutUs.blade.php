@@ -19,14 +19,16 @@
                         <div class="row gx-4 align-items-center">
                             <div class="col-md-6 order-2 order-lg-1">
                                 <div class="me-md-2 me-lg-5 text-center mt-5 mt-md-0">
-                                    <h2 class="display-5 fw-bold">MANIA FABRIC</h2>
+                                    <h2 class="display-5 fw-bold mb-4">MANIA FABRIC</h2>
                                     <p class="lead text-left">
                                         Это динамично развивающаяся швейная фабрика, основанная в 2014 году и уже зарекомендовавшая себя как надежный партнёр для российских селлеров. Мы занимаемся пошивом 2-го и 3-го слоев одежды, создавая качественные и современные изделия, которые соответствуют высоким стандартам рынка.
                                     </p>
                                 </div>
                             </div>
                             <div class="col-md-6 order-1 order-lg-2">
-                                <div class="ms-md-2 ms-lg-5"><img class="img-fluid rounded-3" src="https://freefrontend.dev/assets/square.png"></div>
+                                <div class="ms-md-2 ms-lg-5">
+                                    <img class="img-fluid rounded-3" src="{{asset('dist/images/factory/photo_1.jpg')}}" alt="" data-image="{{asset('dist/images/factory/photo_1.jpg')}}">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,60 +145,91 @@
 
                 <section class="py-5">
                     <div class="container">
-                        <div class="row justify-content-center text-center mb-4">
-                            <div class="col-lg-10 col-xxl-7">
+                        <!--- Heading -->
+                        <div class="row text-center mb-4">
+                            <div class="col-12 col-lg-10 col-xl-8 mx-auto text-center">
                                 <h2 class="display-5 fw-bold">Этапы производства</h2>
-                                <p class="lead">В нашем производстве все процессы налажены и автоматизированы, что позволяет нам обеспечивать высокое качество и оперативность выполнения заказов.</p>
+                                <p class="lead mb-0">В нашем производстве все процессы налажены и автоматизированы, что позволяет нам обеспечивать высокое качество и оперативность выполнения заказов.</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="text-center position-relative">
-                                    <div class="step-icon mx-auto bg-success border rounded-circle d-flex align-items-center justify-content-center" style="width:120px;height:120px;">
-                                        <svg class="bi bi-basket text-white" fill="currentColor" height="40" viewbox="0 0 16 16" width="40" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"></path></svg>
+                        </div><!--- Steps Wrap -->
+                        <div class="row justify-content-center pt-5">
+                            <div class="col-lg-12">
+                                <div class="row mb-5">
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top:-3.5rem;">
+                                                1
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Ваша модель</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/dress_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/dress_icon.png')}}">
+                                        </div>
                                     </div>
-                                    <h4 class="mt-3 fs-5"> Прием заказа </h4>
-                                    <div class="arrow-icon position-absolute d-none d-lg-block" style="top:50px; right:-25px">
-                                        <svg class="bi bi-arrow-right" fill="currentColor" height="30" viewbox="0 0 16 16" width="30" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" fill-rule="evenodd"></path></svg>
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                2
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Разработка лекала</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/measure_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/measure_icon.png')}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                3
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Пошив образца</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/fashion_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/fashion_icon.png')}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                4
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Отправка образца</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/delivery_truck_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/delivery_truck_icon.png')}}">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center position-relative">
-                                    <div class="step-icon mx-auto bg-success border rounded-circle d-flex align-items-center justify-content-center" style="width: 120px;height: 120px;">
-                                        <svg class="bi bi-envelope-exclamation text-white" fill="currentColor" height="30" viewbox="0 0 16 16" width="30" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"></path>
-                                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path></svg>
+                                <div class="row">
+
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                5
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Закупка ткани</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/fabric_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/fabric_icon.png')}}">
+                                        </div>
                                     </div>
-                                    <h4 class="mt-3 fs-5"> Пошив образца </h4>
-                                    <div class="arrow-icon d-none d-lg-block position-absolute" style="top:50px; right:-25px">
-                                        <svg class="bi bi-arrow-right" fill="currentColor" height="30" viewbox="0 0 16 16" width="30" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" fill-rule="evenodd"></path></svg>
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                6
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Пошив партии</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/sewing_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/sewing_icon.png')}}">
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center position-relative">
-                                    <div class="step-icon mx-auto bg-success border rounded-circle d-flex align-items-center justify-content-center" style="width: 120px;height: 120px;">
-                                        <svg class="bi bi-truck text-white" fill="currentColor" height="40" viewbox="0 0 16 16" width="40" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                7
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Контроль качества</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/medal_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/medal_icon.png')}}">
+                                        </div>
                                     </div>
-                                    <h4 class="mt-3 fs-5"> Произвожства и упаковка </h4>
-                                    <div class="arrow-icon d-none d-lg-block position-absolute" style="top:50px; right:-25px">
-                                        <svg class="bi bi-arrow-right" fill="currentColor" height="30" viewbox="0 0 16 16" width="30" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" fill-rule="evenodd"></path></svg>
+                                    <div class="col-lg-3">
+                                        <div class="card rounded-0 text-center p-3 bg-light px-5 mb-5 mb-lg-0">
+                                            <div class="d-flex rounded-circle mx-auto align-items-center justify-content-center text-white fs-3 fw-bold bg-success border border-white border-4" style="width: 4rem; height:4rem; margin-top: -3.5rem;">
+                                                8
+                                            </div>
+                                            <h5 class="mt-3 mb-4">Отправка партии</h5>
+                                            <img class="rounded img-responsive m-auto" style="width: 60px" src="{{asset('dist/images/icons/paper_plane_icon.png')}}" alt="" data-image="{{asset('dist/images/icons/paper_plane_icon.png')}}">
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center position-relative">
-                                    <div class="step-icon mx-auto bg-success border rounded-circle d-flex align-items-center justify-content-center" style="width: 120px;height: 120px;">
-                                        <svg class="bi bi-truck text-white" fill="currentColor" height="40" viewbox="0 0 16 16" width="40" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>
-                                    </div>
-                                    <h4 class="mt-3 fs-5"> Отправка товара </h4>
                                 </div>
                             </div>
                         </div>
@@ -211,19 +244,19 @@
                             </div>
                         </div>
                         <div class="row gy-4">
-                            <div class="col-md-6 col-xl-4"><img alt="" class="img-fluid rounded" src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
+                            <div class="col-md-6 col-xl-4"><img class="img-fluid rounded" src="{{asset('dist/images/factory/photo_2.png')}}" alt="" data-image="{{asset('dist/images/factory/photo_2.png')}}"></div>
                             <div class="col-md-6 col-xl-4">
                                 <div class="bg-light rounded h-100 d-flex align-items-center">
                                     <div class="text-center p-5 p-md-3">
-                                        <h4>A Catchy Title</h4>
-                                        <p class="mt-3 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis metus sem veniam.</p>
+                                        <h4> Mania </h4>
+                                        <p class="mt-3 mb-0">Наш цех — это современное, высокоорганизованное пространство, оснащенное передовым оборудованием и технологичными машинами, где команда профессионалов контролирует каждый этап производства для создания одежды высочайшего качества.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-4"><img alt="" class="img-fluid rounded" src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-                            <div class="col-md-6 col-xl-4"><img alt="" class="img-fluid rounded" src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-                            <div class="col-md-6 col-xl-4"><img alt="" class="img-fluid rounded" src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-                            <div class="col-md-6 col-xl-4"><img alt="" class="img-fluid rounded" src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
+                            <div class="col-md-6 col-xl-4"><img class="img-fluid rounded" src="{{asset('dist/images/factory/photo_3.png')}}" alt="" data-image="{{asset('dist/images/factory/photo_3.png')}}"></div>
+                            <div class="col-md-6 col-xl-4"><img class="img-fluid rounded" src="{{asset('dist/images/factory/photo_4.png')}}" alt="" data-image="{{asset('dist/images/factory/photo_4.png')}}"></div>
+                            <div class="col-md-6 col-xl-4"><img class="img-fluid rounded" src="{{asset('dist/images/factory/photo_5.png')}}" alt="" data-image="{{asset('dist/images/factory/photo_5.png')}}"></div>
+                            <div class="col-md-6 col-xl-4"><img class="img-fluid rounded" src="{{asset('dist/images/factory/photo_6.png')}}" alt="" data-image="{{asset('dist/images/factory/photo_6.png')}}"></div>
                         </div>
                     </div>
                 </section>

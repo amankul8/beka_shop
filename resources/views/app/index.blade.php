@@ -2,7 +2,7 @@
 @section('content')
     <!-- Slider -->
 
-    <div class="main_slider" style="background-image:url({{asset('dist/images/slider_1.jpg')}})">
+    <div class="main_slider" style="background-image:url({{asset('dist/images/factory/main_photo.png')}})">
         <div class="container fill_height">
             <div class="row align-items-center fill_height">
                 <div class="col">
@@ -20,6 +20,7 @@
 
     <!-- Best Sellers -->
 
+
     <div class="best_sellers">
         <div class="container">
             <div class="row">
@@ -34,17 +35,18 @@
                     <div class="product_slider_container">
                         <div class="owl-carousel owl-theme product_slider">
 
-                            @foreach($new_products as $product)
-                                <div class="owl-item product_slider_item">
+                        @foreach($new_products as $product)
+                                <div class="owl-item product_slider_item" onclick="redirectTo('/products/product/{{ $product->id }}')">
                                     <div class="product-item">
                                         <div class="product discount">
                                             <div class="product_image">
-                                                <img src="{{ asset('uploads/' . $product->image_url)}}"/>
+                                                <img src="{{ asset('uploads/' . $product->image_url)}}" alt=""/>
                                             </div>
-                                            <div class="favorite favorite_left"></div>
-                                            <div class="product_info">
-                                                <h6 class="product_name"><a href="single.html">{{ $product->name }}</a></h6>
-                                                <div class="product_price"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
+                                            <div class="d-flex align-items-center justify-content-center flex-column p-3">
+                                                <h6 class="">
+                                                    <a class="text-black" href="#">{{ $product->name }}</a>
+                                                </h6>
+                                                <div class="text-danger"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
                                             </div>
                                         </div>
                                     </div>
@@ -72,42 +74,29 @@
 
     <div class="new_arrivals">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col text-center">
                     <div class="section_title new_arrivals_title">
                         <h2>Популярные модели</h2>
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col text-center">
-                    <div class="new_arrivals_sorting">
-                        <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-                            <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-                            <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".women">women's</li>
-                            <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">accessories</li>
-                            <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">men's</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col">
-                    <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+                    <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
 
                         @foreach($pop_products as $product)
-                            <div class="product-item men">
-                                <div class="product discount product_filter">
-                                    <div class="product_image">
-                                        <img src="{{ asset('uploads/' . $product->image_url)}}"/>
-                                    </div>
-                                    <div class="favorite favorite_left"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">{{$product->name}}</a></h6>
-                                        <div class="product_price"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
+                            <div class="product-card" onclick="redirectTo('/products/product/{{ $product->id }}')">
+                                <div class="product-image">
+                                    <img src="{{ asset('uploads/' . $product->image_url)}}" alt=""/>
+                                    <div class="fast-btn">
+                                        <a href="#">Быстрый просмотр</a>
                                     </div>
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">{{$product->name}}</a></h6>
+                                    <div class="product_price"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
+                                </div>
                             </div>
                         @endforeach
 

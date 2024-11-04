@@ -38,6 +38,10 @@ class AppController extends Controller
     }
 
     public function productDetail($id){
-        return view('app.productDetail');
+        $product = Product::find($id);
+
+        return view('app.productDetail', [
+            'product' => $product
+        ]);
     }
 }

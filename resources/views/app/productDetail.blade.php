@@ -25,37 +25,22 @@
                         <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
                             <div class="single_product_thumbnails">
                                 <ul>
-                                    <li>
-                                        <img src="{{asset('dist/images/single_1_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_1.jpg')}}">
-                                    </li>
                                     <li class="active">
-                                        <img src="{{asset('dist/images/single_2_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_2.jpg')}}">
+                                        <img src="{{ asset('uploads/' . $product->image_url)}}" alt="" data-image="{{ asset('uploads/' . $product->image_url)}}">
                                     </li>
-                                    <li>
-                                        <img src="{{asset('dist/images/single_3_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_3.jpg')}}">
-                                    </li>
-                                    <li >
-                                        <img src="{{asset('dist/images/single_2_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_2.jpg')}}">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/images/single_3_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_3.jpg')}}">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/images/single_3_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_3.jpg')}}">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/images/single_3_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_3.jpg')}}">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/images/single_3_thumb.jpg')}}" alt="" data-image="{{asset('dist/images/single_3.jpg')}}">
-                                    </li>
+
+                                    @foreach($product->images as $image)
+                                        <li>
+                                            <img src="{{ asset('uploads/' . $image->url)}}" alt="" data-image="{{ asset('uploads/' . $image->url)}}">
+                                        </li>
+                                    @endforeach
 
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-9 image_col order-lg-2 order-1">
                             <div class="single_product_image">
-                                <div class="single_product_image_background" style="background-image:url('{{asset("dist/images/single_2.jpg")}}')"></div>
+                                <div class="single_product_image_background" style="background-image:url('{{ asset('uploads/' . $product->image_url)}}')"></div>
                             </div>
                         </div>
                     </div>
@@ -64,13 +49,18 @@
             <div class="col-lg-5">
                 <div class="product_details">
                     <div class="product_details_title">
-                        <h2>Product name</h2>
-                        <p> Product description</p>
+                        <h2> {{ $product->name }} </h2>
+                        <p> {!! $product->description !!} </p>
                     </div>
                     <ul>
-                        <li> Category: <i>Category</i> </li>
-                        <li> Model: <i>Model</i></li>
-                        <li> New </li>
+                        <li> Категория: <i> {{ $product->category->name }} </i> </li>
+                        <li> Модель: <i>{{ $product->model->name }}</i></li>
+                        <li> Цвет: <i>{{ $product->color->name }}</i></li>
+                        <li> Коллекция: <i>{{ $product->collection->collection_name }}</i></li>
+                        <li> Размеры: <i>{{ $product->sizes }}</i></li>
+                        <li> Состав: <i>{{ $product->composition }}</i></li>
+                        <li> Цена: <i>{{ $product->price }} {{$product->currency->currency_code}}</i></li>
+                        <li> Минимальная количетво: <i>{{ $product->min_quantity }}</i></li>
                     </ul>
                 </div>
             </div>

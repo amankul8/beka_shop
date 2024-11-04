@@ -76,7 +76,7 @@
             <div class="col">
                 <div id="google_map">
                     <div class="map_container">
-                        <div id="map"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2922.4185409687246!2d74.6380495!3d42.8510844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb658ac12724d%3A0x31d554a072dc94ce!2z0YPQuy4g0KLQvtC9LCDQkdC40YjQutC10Lo!5e0!3m2!1sru!2skg!4v1672239918130!5m2!1sru!2skg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
