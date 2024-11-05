@@ -3939,7 +3939,7 @@ button.close {
 
 .modal-open {
   overflow: hidden; }
-  .modal-open .modal {
+.modal-open .modal {
     overflow-x: hidden;
     overflow-y: auto; }
 
@@ -3956,7 +3956,7 @@ button.close {
 
 .modal-dialog {
   position: relative;
-  width: auto;
+  width: 100%;
   margin: 0.5rem;
   pointer-events: none; }
   .modal.fade .modal-dialog {
@@ -3971,6 +3971,8 @@ button.close {
 .modal-dialog-centered {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   min-height: calc(100% - (0.5rem * 2)); }
   .modal-dialog-centered::before {
     display: block;
@@ -14719,7 +14721,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 }
 
 .show-block div {
-    margin: 2em 0 2em 3em;
+    /*margin: 2em 0 2em 3em;*/
 }
 
 .product-size-input {

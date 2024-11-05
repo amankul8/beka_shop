@@ -36,6 +36,8 @@
 
 <div class="super_container">
 
+    <div class="modal-window" id="product-short-info-modal-window" onclick="closeModal(event)">
+    </div>
     <!-- Header -->
 
     <header class="header trans_300">

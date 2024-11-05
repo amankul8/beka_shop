@@ -203,7 +203,7 @@
                                                                 <div class="form-group">
                                                                     <input class="form-control" required type="text" name="name" placeholder="Название фото">
                                                                 </div>
-                                                                <div class="form-control">
+                                                                <div class="form-group">
                                                                     <input type="file" required name="image">
                                                                 </div>
                                                             </div>

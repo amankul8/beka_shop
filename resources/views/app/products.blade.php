@@ -196,15 +196,15 @@
                                     <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 mt-5">
 
                                         @foreach($products as $product)
-                                            <div class="product-card" onclick="redirectTo('/products/product/{{ $product->id }}')">
+                                            <div class="product-card">
                                                 <div class="product-image">
                                                     <img src="{{ asset('uploads/' . $product->image_url)}}" alt=""/>
                                                     <div class="fast-btn">
-                                                        <a href="#">Быстрый просмотр</a>
+                                                        Быстрый просмотр
                                                     </div>
                                                 </div>
-                                                <div class="product_info">
-                                                    <h6 class="product_name"><a href="single.html">{{$product->name}}</a></h6>
+                                                <div class="product_info" onclick="redirectTo('/products/product/{{ $product->id }}')">
+                                                    <h6 class="product_name">{{$product->name}}</h6>
                                                     <div class="product_price"> {{ $product->price }} {{ $product->currency->currency_code }} </div>
                                                 </div>
                                             </div>
