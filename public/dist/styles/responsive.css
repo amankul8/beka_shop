@@ -359,6 +359,18 @@
 	{
 		margin-top: 15px;
 	}
+
+    .modal-product-info {
+        width: 350px;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .modal-product-info .modal-image-block {
+        width: 100%;
+    }
+    .modal-product-info .modal-info-block {
+        width: 100%;
+    }
 }
 
 /************

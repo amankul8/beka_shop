@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductSizeController;
 Route::prefix('')->group(function () {
     Route::get('', [AppController::class, 'index'])->name('home');
     Route::get('products', [AppController::class, 'products'])->name('products');
+    Route::get('products/{category_id}', [AppController::class, 'productsFilter'])->name('products-filter');
     Route::get('contact-us', [AppController::class, 'contacts'])->name('contact-us');
     Route::get('about-us', [AppController::class, 'aboutUs'])->name('about-us');
     Route::get('products/product/{product_id}', [AppController::class, 'productDetail'])->name('product-detail');

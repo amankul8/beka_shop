@@ -33,8 +33,19 @@ class AppController extends Controller
 
     public function products(){
         $products = Product::where('active', true)->get();
+        $categories = Category::where('parent_id', null)->get();
 
-        return view('app.products', compact('products'));
+        return view('app.products', compact('products' , 'categories'))->with('category_id', 0);
+    }
+
+    public function productsFilter($category_id){
+        $categories = Category::where('parent_id', null)->get();
+        $categoryIds = Category::where('parent_id', $category_id)->pluck('id');
+        $products = Product::where('active', true)
+            ->whereIn('category_id', $categoryIds)
+            ->get();
+
+        return view('app.products', compact('products', 'categories', 'category_id'));
     }
 
     public function productDetail($id){

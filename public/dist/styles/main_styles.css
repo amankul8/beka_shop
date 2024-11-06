@@ -1680,7 +1680,7 @@ section
 
 
 .product-card {
-    width: 260px;
+    width: 250px;
     overflow: hidden;
     height: 480px;
     border-radius: 10px;
@@ -1727,7 +1727,8 @@ section
 
 .modal-window {
     position: fixed;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     display: none;
     background: rgba(0,0,0, 0.8);
     z-index: 100;
@@ -1806,4 +1807,39 @@ section
     -webkit-box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
     -moz-box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
     box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+}
+
+
+.products-filter-wrapper {
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1em;
+}
+
+.products-filter-wrapper a button {
+    border: 1px solid #ececec;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: 150ms linear;
+    color: black;
+    text-decoration: none;
+}
+
+.products-filter-wrapper a .active {
+    -webkit-box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+    -moz-box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+    box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+    color: #fb4b4b;
+}
+
+.products-filter-wrapper a button:hover {
+    -webkit-box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+    -moz-box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+    box-shadow: -1px 1px 10px -6px rgba(34, 60, 80, 0.51);
+    color: #fb4b4b;
 }

@@ -90,7 +90,7 @@
                         </li>
                     </ul>
 
-                    <div class="container d-flex justify-content-end mt-4">
+                    <div class="container d-flex justify-content-center mt-4">
                         <button type="button" class="btn btn-info"> Связаться с производителем </button>
                     </div>
                 </div>
