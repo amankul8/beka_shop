@@ -1,2 +1,44 @@
+User-agent: Yandex
+Disallow: /admin
+Allow: /
+Allow: /products/
+Allow: /products
+Allow: /contact-us
+Allow: /about-us
+Allow: /products/product/
+
+User-agent: Googlebot
+Disallow: /admin
+Allow: /
+Allow: /products/
+Allow: /products
+Allow: /contact-us
+Allow: /about-us
+Allow: /products/product/
+
+User-agent: Googlebot-Chrome
+Disallow: /admin
+Allow: /
+Allow: /products/
+Allow: /products
+Allow: /contact-us
+Allow: /about-us
+Allow: /products/product/
+
+User-agent: Applebot
+Disallow: /admin
+Allow: /
+Allow: /products/
+Allow: /products
+Allow: /contact-us
+Allow: /about-us
+Allow: /products/product/
+
 User-agent: *
-Disallow:
+Disallow: /admin
+Allow: /
+Allow: /products/
+Allow: /products
+Allow: /contact-us
+Allow: /about-us
+Allow: /products/product/

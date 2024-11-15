@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <title>Mania</title>
+    <title>MANIA FABRIC,  швейное производство в Бишкеке</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="mania">
+    <meta name="description" content="Мы предлагаем широкий спектр услуг, необходимых для создания качественной одежды и подготовки её к продаже на маркетплейсах">
     <meta name="keywords" content="фабрика MANIA FABRIC, швейное производство, пошив одежды, шелкография, сублимация, изготовление лекал, пошив образцов, услуги ОТК, декатировка, упаковка, маркировка, закупка тканей, фурнитура, брендирование, пакеты с логотипом, лейблы, этикетки, доставка по СНГ, массовое производство одежды, маркетплейсы, качественная одежда, спецмашины, современное оборудование, трикотаж, заказ на производство, одежда на заказ, одежда для маркетплейсов, швейный цех, контроль качества"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="MANIA FABRIC,  швейное производство в Бишкеке" />
+    <meta property="og:description" content="Широкий выбор модной и качественной одежды для мужчин и женщин. Откройте для себя стильные новинки и акционные предложения." />
+    <meta property="og:url" content="https://mania-fabric.ru" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mania fabric" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <meta name="robots" content="index, follow" />
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('dist/styles/bootstrap4/bootstrap.min.css')}}">
     <link href="{{asset('dist/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">

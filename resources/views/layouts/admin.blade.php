@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
@@ -8,6 +8,7 @@
 
     <!-- theme meta -->
     <meta name="theme-name" content="quixlab" />
+    <meta name="robots" content="noindex, nofollow" />
 
     <title>Admin</title>
     <!-- Custom Stylesheet -->
