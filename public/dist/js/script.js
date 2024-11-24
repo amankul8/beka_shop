@@ -55,13 +55,12 @@ function showModal(id, image, name, model, collection, sizes, composition, price
                 $('<span>').text(composition),
             ),
             $('<li>').append(
-                $('<strong>').text('Цена:'),
-                $('<span>').text(price),
-
-            ),
-            $('<li>').append(
                 $('<strong>').text('Количетво:'),
                 $('<span>').text(minQuantity),
+            ),
+            $('<li>').append(
+                $('<span class="display-6 text-danger">').text(price),
+
             )
         ),
         $('<div>', {class: "modal-link-wrapper"}).append(

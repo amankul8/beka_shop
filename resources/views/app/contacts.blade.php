@@ -1,4 +1,18 @@
 @extends('layouts.app')
+
+@section('title', 'MANIA FABRIC, контакты')
+
+@section('head')
+    <meta name="description" content="Мы предлагаем широкий спектр услуг, необходимых для создания качественной одежды и подготовки её к продаже на маркетплейсах">
+
+    <meta property="og:title" content="MANIA FABRIC,  швейное производство в Бишкеке" />
+    <meta property="og:description" content="Широкий выбор модной и качественной одежды для мужчин и женщин. Откройте для себя стильные новинки и акционные предложения." />
+    <meta property="og:url" content="https://mania-fabric.ru" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mania fabric" />
+    <meta property="og:image" content="{{ asset('dist/images/logo.png') }}">
+@endsection
+
 @section('content')
 
     <div class="container contact_container">

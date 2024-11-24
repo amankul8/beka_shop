@@ -1,4 +1,18 @@
 @extends('layouts.app')
+
+@section('title', 'MANIA FABRIC, товары')
+
+@section('head')
+    <meta name="description" content="Мы предлагаем широкий спектр услуг, необходимых для создания качественной одежды и подготовки её к продаже на маркетплейсах">
+
+    <meta property="og:title" content="MANIA FABRIC,  швейное производство в Бишкеке" />
+    <meta property="og:description" content="Широкий выбор модной и качественной одежды для мужчин и женщин. Откройте для себя стильные новинки и акционные предложения." />
+    <meta property="og:url" content="https://mania-fabric.ru" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mania fabric" />
+    <meta property="og:image" content="{{ asset('dist/images/logo.png') }}">
+@endsection
+
 @section('content')
 
         <div class="container product_section_container">
@@ -42,7 +56,17 @@
                                                 <div class="product-card">
                                                     <div class="product-image">
                                                         <img src="{{ asset('uploads/' . $product->image_url)}}" alt=""/>
-                                                        <div class="fast-btn">
+                                                        <div class="fast-btn" onclick="showModal(
+                                                            {{$product->id}},
+                                                            '{{ asset("uploads/" . $product->image_url)}}',
+                                                            '{{$product->name}}',
+                                                            '{{$product->model->name}}',
+                                                            '{{$product->collection->collection_name}}',
+                                                            '{{$product->sizes}}',
+                                                            '{{$product->composition}}',
+                                                            '{{ $product->price }} {{ $product->currency->currency_code }}',
+                                                            '{{$product->min_quantity}}',
+                                                        )">
                                                             Быстрый просмотр
                                                         </div>
                                                     </div>

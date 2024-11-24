@@ -1,4 +1,19 @@
+
 @extends('layouts.app')
+
+@section('title', 'MANIA FABRIC, подробно')
+
+@section('head')
+    <meta name="description" content="{{$product->name . $product->collection->collection_name . $product->composition . $product->price . $product->currency->currency_code }}">
+
+    <meta property="og:title" content="{{ $product->name }}" />
+    <meta property="og:description" content="{{$product->name . $product->collection->collection_name . $product->composition . $product->price . $product->currency->currency_code }}" />
+    <meta property="og:url" content="https://mania-fabric.ru/products/product/{{$product->id}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mania fabric" />
+    <meta property="og:image" content="{{ asset('uploads/' . $product->image_url)}}">
+@endsection
+
 @section('content')
 
     <div class="container single_product_container">
@@ -52,37 +67,32 @@
                     <ul>
                         <h3 class="h3 mb-4"> {{ $product->name }} </h3>
                         <li> <h4 class="h4 mb-3"> Характеристики и описание </h4> </li>
-                        <li class="mb-1">
+                        <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Категория: </span>
-                            <span> {{ $product->category->name }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->category->parent->name . ' / ' . $product->category->name }} </span>
                         </li>
-                        <li class="mb-1">
-                            <span class="d-inline-block w-50 font-weight-bold"> Модель: </span>
-                            <span> {{ $product->model->name }} </span>
-                        </li>
-                        <li class="mb-1">
+                        <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Цвет: </span>
-                            <span> {{ $product->color->name }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->color->name }} </span>
                         </li>
-                        <li class="mb-1">
+                        <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Коллекция: </span>
-                            <span> {{ $product->collection->collection_name }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->collection->collection_name }} </span>
                         </li>
-                        <li class="mb-1">
+                        <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Размеры: </span>
-                            <span> {{ $product->sizes }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->sizes }} </span>
                         </li>
-                        <li class="mb-1">
+                        <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Состав: </span>
-                            <span> {{ $product->composition }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->composition }} </span>
                         </li>
-                        <li class="mb-1">
-                            <span class="d-inline-block w-50 font-weight-bold"> Цена: </span>
-                            <span> {{ $product->price }} {{$product->currency->currency_code}} </span>
-                        </li>
-                        <li class="mb-1">
+                        <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Минимальная количетво: </span>
                             <span> {{ $product->min_quantity }} </span>
+                        </li>
+                        <li class="mt-4">
+                            <span class="d-inline-block w-50 display-6 text-danger"> {{ $product->price }} {{$product->currency->currency_code}} </span>
                         </li>
                         <li class="mt-4">
                             <span class="d-block w-50 font-weight-bold"> Описание: </span>
