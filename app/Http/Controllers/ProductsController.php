@@ -7,7 +7,6 @@ use App\Models\Color;
 use App\Models\Collection;
 use App\Models\Currency;
 use App\Models\Image;
-use App\Models\ModelEntry;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,23 +17,23 @@ class ProductsController extends Controller
 {
 
    private $productSizes = array(
-        '38 (XXS)',
-        '40 (XS)',
-        '42 (S)',
-        '44 (M)',
-        '46 (M)',
-        '48 (L)',
-        '50 (L)',
-        '52 (XL)',
-        '54 (XXL)',
-        '56 (XXL)',
-        '58 (XXXL)',
-        '60 (4XL)',
-        '62 (4XL)',
-        '64 (4XL)',
-    );
+            '38 (XXS)',
+            '40 (XS)',
+            '42 (S)',
+            '44 (M)',
+            '46 (M)',
+            '48 (L)',
+            '50 (L)',
+            '52 (XL)',
+            '54 (XXL)',
+            '56 (XXL)',
+            '58 (XXXL)',
+            '60 (4XL)',
+            '62 (4XL)',
+            '64 (4XL)',
+        );
     public function index(){
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->get();
         return view('admin.products.index', ['products' => $products]);
     }
 
@@ -47,7 +46,6 @@ class ProductsController extends Controller
     public function edit($id){
         $product = Product::find($id);
         $categories = Category::where('parent_id', null)->get();
-        $models = ModelEntry::all();
         $colors = Color::all();
         $collections = Collection::all();
         $currencies = Currency::all();
@@ -57,7 +55,6 @@ class ProductsController extends Controller
             , [
                 'product' => $product
                 , 'categories' => $categories
-                , 'models' => $models
                 , 'colors' => $colors
                 , 'collections' => $collections
                 , 'currencies' => $currencies
@@ -65,14 +62,12 @@ class ProductsController extends Controller
     }
     public function update(Request $request)
     {
-        // Валидация входных данных
         $request->validate([
             'id' => 'required|exists:products,id',
             'name' => 'required',
             'category_id' => 'required',
-            'model_id' => 'required',
-            'color_id' => 'required',
-            'collection_id' => 'required',
+            'colors' => 'required|array',
+            'collections' => 'required|array',
             'sizes' => 'required',
             'composition' => 'required',
             'min_quantity' => 'required',
@@ -82,7 +77,6 @@ class ProductsController extends Controller
             'image' => 'sometimes|file',
         ]);
 
-        // Найти продукт
         $product = Product::find($request->id);
 
         if ($product) {
@@ -91,9 +85,9 @@ class ProductsController extends Controller
                 // Если новое изображение загружено
                 if ($request->hasFile('image')) {
                     // Удалить старое изображение
-                    $filePath = public_path('uploads') . '/' . $product->image_url;
-                    if (File::exists($filePath)) {
-                        File::delete($filePath);
+                    $oldImagePath = public_path('uploads/' . $product->image_url);
+                    if (File::exists($oldImagePath)) {
+                        File::delete($oldImagePath);
                     }
 
                     // Сохранить новое изображение
@@ -109,22 +103,21 @@ class ProductsController extends Controller
                 $product->update([
                     'name' => $request->name,
                     'category_id' => $request->category_id,
-                    'model_id' => $request->model_id,
-                    'color_id' => $request->color_id,
                     'sizes' => $request->sizes,
-                    'collection_id' => $request->collection_id,
                     'composition' => $request->composition,
                     'min_quantity' => $request->min_quantity,
                     'price' => $request->price,
                     'currency_id' => $request->currency_id,
                     'description' => $request->description,
-                    'new' => $request->has('new') ? true : false,  // Если параметр new есть, то true, иначе false
-                    'pop' => $request->has('pop') ? true : false,  // То же самое для pop
-                    'active' => $request->has('active') ? true : false  // И для active
+                    'new' => $request->input('new', false),
+                    'pop' => $request->input('pop', false),
+                    'active' => $request->input('active', false),
                 ]);
             });
 
-            // Перенаправление после успешного обновления
+            $product->colors()->sync($request->colors);
+            $product->collections()->sync($request->collections);
+
             return redirect()->route('admin-product-show', ['id' => $request->id])->with('success', 'Product updated successfully');
         }
 
@@ -162,7 +155,6 @@ class ProductsController extends Controller
     public function create(){
 
         $categories = Category::where('parent_id', null)->get();
-        $models = ModelEntry::all();
         $colors = Color::all();
         $collections = Collection::all();
         $currencies = Currency::all();
@@ -171,7 +163,6 @@ class ProductsController extends Controller
             'admin.products.create'
             , [
                 'categories' => $categories
-                , 'models' => $models
                 , 'colors' => $colors
                 , 'collections' => $collections
                 , 'currencies' => $currencies
@@ -183,11 +174,10 @@ class ProductsController extends Controller
         $request->validate([
             'name' => 'required',
             'category_id' => 'required',
-            'model_id' => 'required',
-            'color_id' => 'required',
+            'colors' => 'required',
             'from_size' => 'required',
             'before_size' => 'required',
-            'collection_id' => 'required',
+            'collections' => 'required',
             'composition' => 'required',
             'min_quantity' => 'required',
             'price' => 'required',
@@ -203,13 +193,10 @@ class ProductsController extends Controller
 
         $sizes = $request['from_size'].' - '. $request['before_size'];
 
-        Product::create([
+        $product = Product::create([
             'name' => $request['name'],
             'category_id'=> $request['category_id'],
-            'model_id' => $request['model_id'],
-            'color_id' => $request['color_id'],
             'sizes' => $sizes,
-            'collection_id' => $request['collection_id'],
             'composition' => $request['composition'],
             'min_quantity' => $request['min_quantity'],
             'price' => $request['price'],
@@ -220,6 +207,9 @@ class ProductsController extends Controller
             'pop' => $request['pop'] ? true : false,
             'active' => $request['active'] ? true : false,
         ]);
+
+        $product->colors()->attach($request['colors']);
+        $product->collections()->attach($request['collections']);
 
         return redirect()->route('admin-products')->with('success', 'Product added successfully');
     }

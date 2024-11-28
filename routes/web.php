@@ -7,7 +7,6 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CollectionsController;
@@ -41,16 +40,6 @@ Route::middleware([AuthMiddleware::class])->prefix('admin')->group(function () {
         Route::post('store', [CategoriesController::class, 'store'])->name('admin-categories-store');
         Route::post('update', [CategoriesController::class, 'update'])->name('admin-categories-update');
         Route::post('delete', [CategoriesController::class, 'delete'])->name('admin-categories-delete');
-    });
-
-    Route::prefix('models')->group(function () {
-        Route::get('', [ModelsController::class, 'index'])->name('admin-models');
-        Route::get('create', [ModelsController::class, 'create'])->name('admin-models-create');
-        Route::get('edit/{id}', [ModelsController::class, 'edit'])->name('admin-models-edit');
-
-        Route::post('create', [ModelsController::class, 'store'])->name('admin-models-store');
-        Route::post('update', [ModelsController::class, 'update'])->name('admin-models-update');
-        Route::post('delete', [ModelsController::class, 'delete'])->name('admin-models-delete');
     });
 
     Route::prefix('colors')->group(function () {

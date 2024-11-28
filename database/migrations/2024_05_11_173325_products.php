@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('model_id');
-            $table->unsignedBigInteger('color_id');
-            $table->unsignedBigInteger('collection_id');
             $table->unsignedBigInteger('currency_id');
             $table->string('composition');
             $table->longText('description');
@@ -31,10 +28,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('model_id')->references('id')->on('models')->onDelete('cascade');
-            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
             $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
-            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
         });
     }
 

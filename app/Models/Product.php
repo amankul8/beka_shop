@@ -33,17 +33,16 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function model(){
-        return $this->belongsTo(ModelEntry::class);
+    public function colors(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Color::class, 'products_colors');
     }
 
-    public function color(){
-        return $this->belongsTo(Color::class);
+    public function collections(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Collection::class, 'products_collections');
     }
 
-    public function collection(){
-        return $this->belongsTo(Collection::class);
-    }
     public function currency(){
         return $this->belongsTo(Currency::class);
     }

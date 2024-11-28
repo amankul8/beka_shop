@@ -49,48 +49,40 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="model_id"> Модель </label>
-                                        <select class="form-control rounded" required id="model_id" name="model_id">
-                                            <option value="">Выберите модель</option>
-                                            @foreach($models as $model)
-                                                @if($model->id == $product->model_id)
-                                                    <option selected value="{{$model->id}}">{{$model->name}}</option>
+                                        <label for="color_id"> Выберите цвет </label>
+                                        <div class="d-flex align-items-center justify-content-start flex-wrap">
+                                            @foreach($colors as $color)
+                                                @if(in_array($color->id, $product->colors->pluck('id')->toArray()))
+                                                    <div class="d-inline-block m-3">
+                                                        <input class="c-pointer" type="checkbox" checked id="{{$color->name.'_id'}}" name="colors[]" value='{{$color->id}}'>
+                                                        <label class="ml-2 c-pointer" for="{{$color->name.'_id'}}"> {{$color->name}} </label>
+                                                    </div>
                                                 @else
-                                                    <option value="{{$model->id}}">{{$model->name}}</option>
+                                                    <div class="d-inline-block m-3">
+                                                        <input class="c-pointer" type="checkbox" id="{{$color->name.'_id'}}" name="colors[]" value='{{$color->id}}'>
+                                                        <label class="ml-2 c-pointer" for="{{$color->name.'_id'}}"> {{$color->name}} </label>
+                                                    </div>
                                                 @endif
                                             @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="color_id"> Цвет </label>
-                                        <div>
-                                            <select class="form-control rounded" required id="color_id" name="color_id">
-                                                <option value=""> Выберите цвет </option>
-                                                @foreach($colors as $color)
-                                                    @if($color->id == $product->color_id)
-                                                        <option selected value="{{$color->id}}"> {{$color->name}}</option>
-                                                    @else
-                                                        <option value="{{$color->id}}"> {{$color->name}}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="collection_id"> Коллекция </label>
-                                        <div>
-                                            <select class="form-control rounded" required id="collection_id" name="collection_id">
-                                                <option value=""> Выберите цвет </option>
-                                                @foreach($collections as $collection)
-                                                    @if($collection->id == $product->collection_id)
-                                                        <option selected value="{{$collection->id}}"> {{$collection->collection_name}}</option>
-                                                    @else
-                                                        <option value="{{$collection->id}}"> {{$collection->collection_name}}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                        <div class="d-flex align-items-center justify-content-start flex-wrap">
+                                            @foreach($collections as $collection)
+                                                @if(in_array($collection->id, $product->collections->pluck('id')->toArray()))
+                                                    <div class="d-inline-block m-3">
+                                                        <input class="c-pointer" checked type="checkbox" id="{{$collection->collection_name.'_id'}}" name="collections[]" value='{{$collection->id}}'>
+                                                        <label class="ml-2 c-pointer" for="{{$collection->collection_name.'_id'}}"> {{$collection->collection_name}} </label>
+                                                    </div>
+                                                @else
+                                                    <div class="d-inline-block m-3">
+                                                        <input class="c-pointer" type="checkbox" id="{{$collection->collection_name.'_id'}}" name="collections[]" value='{{$collection->id}}'>
+                                                        <label class="ml-2 c-pointer" for="{{$collection->collection_name.'_id'}}"> {{$collection->collection_name}} </label>
+                                                    </div>
+                                                @endif
+                                            @endforeach
                                         </div>
                                     </div>
 

@@ -89,12 +89,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('admin-models')}}" aria-expanded="false">
-                        <i class="icon-badge menu-icon"></i>
-                        <span class="nav-text"> Модели </span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{route('admin-colors')}}" aria-expanded="false">
                         <i class="icon-pencil menu-icon"></i>
                         <span class="nav-text"> Цвета </span>

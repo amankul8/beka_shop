@@ -2,7 +2,7 @@ function redirectTo(link) {
     window.location.href = link;
 }
 
-function showModal(id, image, name, model, collection, sizes, composition, price, minQuantity ) {
+function showModal(id, image, name, colors, collections, sizes, composition, price, minQuantity ) {
     const $modal = $('#product-short-info-modal-window');
     $modal.empty();
 
@@ -39,12 +39,12 @@ function showModal(id, image, name, model, collection, sizes, composition, price
                 $('<span>').text(name),
             ),
             $('<li>').append(
-                $('<strong>').text('Модель:'),
-                $('<span>').text(model),
+                $('<strong>').text('Цвета:'),
+                $('<span>').text(colors),
             ),
             $('<li>').append(
                 $('<strong>').text('Коллекция:'),
-                $('<span>').text(collection),
+                $('<span>').text(collections),
             ),
             $('<li>').append(
                 $('<strong>').text('Размеры:'),

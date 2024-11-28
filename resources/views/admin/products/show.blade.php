@@ -35,22 +35,25 @@
                                         {{ $product->category->parent->name }}, {{ $product->category->name }}
                                     </div>
                                 </div>
-                                <div class="mb-2 show-block">
-                                    <strong > Модель: </strong>
-                                    <div class="border rounded bg-light p-2 mt-1" >
-                                        {{ $product->model->name }}
-                                    </div>
-                                </div>
+
                                 <div class="mb-2 show-block">
                                     <strong > Цвет: </strong>
-                                    <div class="border rounded bg-light p-2 mt-1" >
-                                        {{ $product->color->name }}
+                                    <div class="d-flex flex-wrap border rounded bg-light p-2 mt-1" >
+                                        @foreach($product->colors as $color)
+                                            <div class="d-flex align-items-center justify-content-center flex-column m-2">
+                                                <div style="height: 30px; width: 30px; background: {{$color->color}}; border-radius: 15px;"></div>
+                                                <span class="m-1"> {{$color->name}} </span>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
+
                                 <div class="mb-2 show-block">
                                     <strong > Коллекция: </strong>
-                                    <div class="border rounded bg-light p-2 mt-1" >
-                                        {{ $product->collection->collection_name }}
+                                    <div class="d-flex flex-wrap border rounded bg-light p-2 mt-1" >
+                                        @foreach($product->collections as $collection)
+                                            <span class="m-1"> {{$collection->collection_name.', '}} </span>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -201,10 +204,7 @@
                                                             <div class="modal-body">
                                                                 <input type="hidden" name="product_id" value="{{$product->id}}">
                                                                 <div class="form-group">
-                                                                    <input class="form-control" required type="text" name="name" placeholder="Название фото">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <input type="file" required name="image">
+                                                                    <input type="file" id="files" name="files[]"  required multiple>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">

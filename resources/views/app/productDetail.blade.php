@@ -4,10 +4,10 @@
 @section('title', 'MANIA FABRIC, подробно')
 
 @section('head')
-    <meta name="description" content="{{$product->name . $product->collection->collection_name . $product->composition . $product->price . $product->currency->currency_code }}">
+    <meta name="description" content="{{$product->name . $product->collections->implode('collection_name', ', ') . $product->composition . $product->price . $product->currency->currency_code }}">
 
     <meta property="og:title" content="{{ $product->name }}" />
-    <meta property="og:description" content="{{$product->name . $product->collection->collection_name . $product->composition . $product->price . $product->currency->currency_code }}" />
+    <meta property="og:description" content="{{$product->name . $product->collections->implode('collection_name', ', ') . $product->composition . $product->price . $product->currency->currency_code }}" />
     <meta property="og:url" content="https://mania-fabric.ru/products/product/{{$product->id}}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mania fabric" />
@@ -73,11 +73,11 @@
                         </li>
                         <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Цвет: </span>
-                            <span class="d-inline-block w-50"> {{ $product->color->name }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->colors->implode('name', ', ') }} </span>
                         </li>
                         <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Коллекция: </span>
-                            <span class="d-inline-block w-50"> {{ $product->collection->collection_name }} </span>
+                            <span class="d-inline-block w-50"> {{ $product->collections->implode('collection_name', ', ') }} </span>
                         </li>
                         <li class="mb-2 d-flex">
                             <span class="d-inline-block w-50 font-weight-bold"> Размеры: </span>
@@ -101,7 +101,12 @@
                     </ul>
 
                     <div class="container d-flex justify-content-center mt-4">
-                        <button type="button" class="btn btn-info"> Связаться с производителем </button>
+                        <a
+                            href="https://wa.me/996701114565/?text=Здравствуйте, меня интересует эта модель одежды: https://mania-fabric.ru/products/product/{{$product->id}}"
+                            target="_blank"
+                        >
+                            <button type="button" class="btn btn-info"> Связаться с производителем </button>
+                        </a>
                     </div>
                 </div>
             </div>

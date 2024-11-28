@@ -19,13 +19,12 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
+                                            <th>Изображение</th>
                                             <th>Название</th>
                                             <th>Категория</th>
-                                            <th>Модель</th>
-                                            <th>Цвет</th>
                                             <th>Новый</th>
                                             <th>Популярный</th>
-                                            <th>Изображение</th>
+                                            <th>Ативен</th>
                                             <th>Дата</th>
                                             <th>Контроль</th>
                                         </tr>
@@ -33,13 +32,32 @@
                                         <tbody>
                                             @foreach($products as $product)
                                                 <tr>
+                                                    <td class="align-top">
+                                                        <img style="height: 60px; border-radius: 5%" src="{{asset('uploads/'.$product->image_url)}}" alt="">
+                                                    </td>
                                                     <td class="align-top"> {{$product->name}} </td>
                                                     <td class="align-top"> {{$product->category->name}} </td>
-                                                    <td class="align-top"> {{$product->model->name}} </td>
-                                                    <td class="align-top"> {{$product->color->name}} </td>
-                                                    <td class="align-top"> {{$product->new}} </td>
-                                                    <td class="align-top"> {{$product->pop}} </td>
-                                                    <td class="align-top"> {{$product->image_url}} </td>
+                                                    <td class="align-top">
+                                                        @if($product->new == 1)
+                                                            <span> Да </span>
+                                                        @else
+                                                            <span> Нет </span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="align-top">
+                                                        @if($product->pop == 1)
+                                                            <span> Да </span>
+                                                        @else
+                                                            <span> Нет </span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="align-top">
+                                                        @if($product->active == 1)
+                                                            <span> Да </span>
+                                                        @else
+                                                            <span> Нет </span>
+                                                        @endif
+                                                    </td>
                                                     <td class="align-top"> {{$product->created_at}} </td>
                                                     <td class="align-top">
                                                         <h4 class="align-center">
@@ -79,13 +97,11 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
+                                            <th>Изображение</th>
                                             <th>Название</th>
                                             <th>Категория</th>
-                                            <th>Модель</th>
-                                            <th>Цвет</th>
                                             <th>Новый</th>
                                             <th>Популярный</th>
-                                            <th>Изображение</th>
                                             <th>Дата</th>
                                             <th>Контроль</th>
                                         </tr>

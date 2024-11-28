@@ -11,24 +11,38 @@ class ImageController extends Controller
 {
     public function store(Request $request)
     {
+        // Валидация данных
         $request->validate([
-            'name' => 'required',
-            'product_id' => 'required',
-            'image' => 'required|file',
+            'product_id' => 'required|exists:products,id',
+            'files' => 'required|array',
+            'files.*' => 'file|mimes:jpeg,png,jpg,gif,svg|max:20480',
         ]);
 
-        $file = $request->file('image');
-        $fileName = Str::random(20) . '.' . $file->getClientOriginalExtension();
+        $files = $request->file('files');
 
-        $file->move(public_path('uploads'), $fileName);
+        if (count($files) > 0) {
+            foreach ($files as $file) {
+                try {
+                    // Генерация уникального имени для файла
+                    $fileName = Str::random(20) . '.' . $file->getClientOriginalExtension();
 
-        Image::create([
-            'name' => $request->get('name'),
-            'product_id' => $request->get('product_id'),
-            'url' => $fileName
-        ]);
+                    $file->move(public_path('uploads'), $fileName);
 
-        return redirect()->route('admin-product-show', ['id' => $request->get('product_id')])->with('success', 'Image added successfully');
+                    // Сохранение информации о файле в базе данных
+                    Image::create([
+                        'name' => $fileName,
+                        'product_id' => $request->get('product_id'),
+                        'url' => $fileName
+                    ]);
+                } catch (\Exception $e) {
+                    // Логируем ошибку и продолжаем обработку остальных файлов
+                    \Log::error('Ошибка загрузки файла: ' . $e->getMessage());
+                }
+            }
+        }
+
+        return redirect()->route('admin-product-show', ['id' => $request->get('product_id')])
+            ->with('success', 'Image added successfully');
     }
 
 

@@ -21,12 +21,12 @@
                                     @csrf
 
                                     <div class="form-group">
-                                        <label for="name">Название</label>
+                                        <label class="h5" for="name">Название</label>
                                         <input type="text" class="form-control rounded" required id="name" name="name" placeholder="Текст...">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="category_id"> Категория </label>
+                                        <label class="h5" for="category_id"> Категория </label>
                                         <div class="product-category-selector-wrapper">
                                             <input  type="hidden" name="category_id" id="product_create_category_input_id">
                                             <input class="input" type="text" id="product_create_category_input_name" disabled placeholder="Выберите">
@@ -48,41 +48,32 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="model_id"> Модель </label>
-                                        <select class="form-control rounded" required id="model_id" name="model_id">
-                                            <option value="">Выберите модель</option>
-                                            @foreach($models as $model)
-                                                <option value="{{$model->id}}">{{$model->name}}</option>
+                                        <label class="h5" for="color_id"> Выберите цвета </label>
+                                        <div class="d-flex align-items-center justify-content-start flex-wrap">
+                                            @foreach($colors as $color)
+                                                <div class="d-inline-block m-3">
+                                                    <input class="c-pointer" type="checkbox" id="{{$color->name.'_id'}}" name="colors[]" value='{{$color->id}}'>
+                                                    <label class="ml-2 c-pointer" for="{{$color->name.'_id'}}"> {{$color->name}} </label>
+                                                </div>
                                             @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="color_id"> Цвет </label>
-                                        <div>
-                                            <select class="form-control rounded" required id="color_id" name="color_id">
-                                                <option value=""> Выберите цвет </option>
-                                                @foreach($colors as $color)
-                                                    <option value="{{$color->id}}"> {{$color->name}}</option>
-                                                @endforeach
-                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="collection_id"> Коллекция </label>
-                                        <div>
-                                            <select class="form-control rounded" required id="collection_id" name="collection_id">
-                                                <option value=""> Выберите коллекцию </option>
-                                                @foreach($collections as $collection)
-                                                    <option value="{{$collection->id}}"> {{$collection->collection_name}}</option>
-                                                @endforeach
-                                            </select>
+                                        <label class="h5" for="collection_id"> Коллекция </label>
+
+                                        <div class="d-flex align-items-center justify-content-start flex-wrap">
+                                            @foreach($collections as $collection)
+                                                <div class="d-inline-block m-3">
+                                                    <input class="c-pointer" type="checkbox" id="{{$collection->collection_name.'_id'}}" name="collections[]" value='{{$collection->id}}'>
+                                                    <label class="ml-2 c-pointer" for="{{$collection->collection_name.'_id'}}"> {{$collection->collection_name}} </label>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label> Размеры </label>
+                                        <label class="h5" > Размеры </label>
                                         <div class="product-size-input">
 
                                             <label for="from_size"> От </label>
@@ -105,17 +96,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="composition"> Состав </label>
+                                        <label class="h5" for="composition"> Состав </label>
                                         <input type="text" class="form-control rounded" required id="composition" name="composition" placeholder="Состав...">
                                     </div>
 
                                     <div class="form-group min-quantity-input">
-                                        <label for="min_quantity"> Минимальная количество </label>
+                                        <label class="h5" for="min_quantity"> Минимальная количество </label>
                                         <input type="number" class="form-control rounded" required id="min_quantity" name="min_quantity" placeholder="0">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="name">Цена</label>
+                                        <label class="h5" for="name"> Цена </label>
                                         <div class="currency-form-input">
                                             <input type="number" class="form-control rounded" required id="price" name="price" placeholder="0">
                                             <select class="form-control rounded" required id="currency_id" name="currency_id">
@@ -144,14 +135,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="description"> Мазмуну </label>
+                                        <label class="h5" for="description"> Описание </label>
                                         <textarea class="summernote" id="description" required name="description">
                                             Текст...
                                         </textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="image"> Фото </label>
+                                        <label class="h5" for="image"> Фото </label>
                                         <input type="file" required class="form-control rounded" id="image" name="image">
                                     </div>
 
